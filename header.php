@@ -19,7 +19,7 @@
                     <div class="inner-header">
 
                         <div class="logo-container">
-                        <a><li><img src = "images/icons/mainlogo-white.png" height="20" width="160" style="margin-top:10%;" alt="Messages"></li></a>
+                        <a><li><img src = "assets/images/icons/mainlogo-white.png" height="20" width="160" style="margin-top:10%;" alt="Messages"></li></a>
                         </div>
                         <div class="navigation">
                         <div class="search-container">
@@ -32,8 +32,8 @@
                             </ul> 
                                     <ul class="main-nav">
                                         <center>
-                                        <a><li><img src = "images/icons/msg.png" height="20" width="20" alt="Messages"></li></a>
-                                        <a><li><img src = "images/icons/noti.png" height="20" width="20" alt="Notifications"></li></a>
+                                        <a><li><img src = "assets/images/icons/msg.png" height="20" width="20" alt="Messages"></li></a>
+                                        <a><li><img src = "assets/images/icons/noti.png" height="20" width="20" alt="Notifications"></li></a>
                                         <a href="addmusic.php"><li><button class="addmusicbttn"><strong>Add Music</strong></button></li></a>
                                         <a href="profile.php"><li>My Profile</li></a>   
                                         <a href="includes/logout.inc.php"><li>Logout</li></a>

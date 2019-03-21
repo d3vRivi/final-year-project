@@ -1,0 +1,183 @@
+body{
+    width: 100vw;
+    height: 100vh;
+    /* background-image: url(images/back1.jpg);
+    background-size: cover;
+    background-position: center; */
+    background-color: rgb(22, 22, 22);
+    margin: 0;
+   
+}
+.header{
+    width: 100vw;
+    height: 8vh;
+    padding: 2px;
+    position: static;
+    top:0;
+    left: 0;
+
+}
+.main-head{
+    width: 100vw;
+    height: 100px;
+    background-color: #800020;
+    /* margin-top: 50px; */
+}
+.inner-header{
+    width: 1000px;
+    height: 100%;
+    display: block;
+    margin: 0 auto;
+    background-color: #800020;
+    text-decoration: none;
+    list-style: none;
+}
+.logo-container{
+    height: 100%;
+    display: table;
+    float: left;
+}
+.logo-container h2{
+    color: white;
+    height: 100%;
+    display: table-cell;
+    vertical-align: middle;
+    font-family: 'Lato', sans-serif;
+}
+.main-nav{
+    float: right;
+    height: 100%;
+}
+.main-nav a{
+    height: 100%;
+    display: table;
+    float: left;
+    padding: 0px 20px;
+}
+.main-nav a li{
+    display: table-cell;
+    vertical-align: middle;
+    height: 100%;
+    color: white;
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+}
+.main-nav a:last-child{
+    padding-right: 0px;
+}
+.form-container{
+    font-family: 'Lato', sans-serif;
+    margin: 0 auto;
+    width: 450px;
+    font-size: 20px;
+    /* background: rgba(207, 207, 207, 0.829); */
+    padding: 15px;
+    display: grid;
+    justify-content: center;
+    height: 320px;
+}
+.form-container-reg{
+    font-family: 'Lato', sans-serif;
+    margin: 0 auto;
+    width: 450px;
+    font-size: 20px;
+    /* background: rgba(207, 207, 207, 0.829); */
+    padding: 15px;
+    display: grid;
+    justify-content: center;
+    height: 360px;
+    
+}
+.inputc{
+    width: 250px;
+    padding: 15px;
+    margin: 5px;
+}
+.inputcr{
+    width: 350px;
+    padding: 15px;
+    margin: 5px;
+}
+.div2{
+    display: grid;
+    justify-content: center;
+    width: 500px;
+}
+.bttn{
+    background-color: #800020;
+    color: white;
+    border: 0;
+    font-size: 23px;
+    padding: 2px;
+    width: 120px;
+}
+#buttondiv{
+    display: flex;
+    width: 9.2em;
+    justify-content: flex-end;
+}
+.bttn:hover{
+    opacity: 0.5;
+}
+.text{
+    text-align: center;
+    width: 480px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    /* background: rgb(115, 173, 207); */
+}
+h1{
+    font-family: 'Lato Medium', sans-serif;
+    text-align: center;
+    font-weight: 400;  
+    color: white;
+}
+h3{
+    font-family: 'Lato', sans-serif;
+    color: #c40538;
+    text-align: center;
+    font-weight: 250;
+}
+#boxdiv{
+    font-family: 'Lato Light', sans-serif;
+    font-size: 12px;
+    width: 17em; 
+    display: flex;
+    justify-content: flex-end;
+    color: white;
+}
+#boxandbutton{
+    display: flex;
+}
+.div3{
+    font-weight: 100;
+    font-size: 15px;
+    text-align: center;
+    margin: 1 auto;
+    padding: 40px;
+    bottom: 15vh;
+    align-content: center;
+    color: white;
+}
+#register{
+    background-color: purple;
+    color: white;
+    border: 0;
+    width:320px;
+    font-size: 20px;
+    margin: 1 auto;
+    padding: 10px;
+}
+#register:hover{
+    opacity: 0.5;
+}
+#password{
+    font-size: 15px;
+    text-align: center;
+    margin: 1;
+    padding: 15px;
+}
+#main{
+    width: 100vw;
+}
