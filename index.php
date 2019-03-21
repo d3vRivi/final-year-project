@@ -25,17 +25,16 @@
      <div class="main-body">
          <div class="body-grid">
              <?php require 'sidebar.php' ?>
-             <?php
+         
+         </div>
+         <div class="content">
+         <?php
                 if (isset($_SESSION['u_id'])) {
                     echo '<p> Login successful!</p>';
                 } else {
                     echo '<p> Logged out!</p>';
                 }
-
                 ?>
-         </div>
-         <div class="content">
-
          </div>
      </div>
 
