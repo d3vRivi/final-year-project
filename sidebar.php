@@ -13,10 +13,12 @@
             <body>
                 <div class = "sidebar">
                 <aside>
+                    
                 <ul class = "side-nav">
-                     <li><a class="<?php echo (basename($_SERVER['PHP_SELF']) =="index.php")?"active":""; ?>" href="index.php" >Feed</a></li>
-                     <li><a class="<?php echo (basename($_SERVER['PHP_SELF']) =="stream.php")?"active":""; ?>" href="stream.php" >Stream</a></li>
-                     <li><a class="<?php echo (basename($_SERVER['PHP_SELF']) =="opportunities.php")?"active":""; ?>" href="opportunities.php">Opportunities</a></li>
+                     <li><a class="<?php echo (basename($_SERVER['PHP_SELF']) =="index.php")?"active":""; ?>" href="index.php" ><i class="fas fa-newspaper"></i>&nbsp &nbspFeed</a></li>
+                     <li><a class="<?php echo (basename($_SERVER['PHP_SELF']) =="stream.php")?"active":""; ?>" href="stream.php" ><i class="fas fa-play"></i>&nbsp &nbspStream</a></li>
+                     <li><a class="<?php echo (basename($_SERVER['PHP_SELF']) =="opportunities.php")?"active":""; ?>" href="opportunities.php"><i class="fas fa-briefcase"></i>&nbsp &nbspCreative Opportunities</a></li>
+                     <li><a class="<?php echo (basename($_SERVER['PHP_SELF']) =="academy.php")?"active":""; ?>" href="academy.php"><i class="fas fa-university"></i>&nbsp &nbspMaestro Academy</a></li>
                 </ul> 
                 </aside>
                 </div>

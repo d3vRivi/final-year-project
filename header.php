@@ -6,8 +6,11 @@
                 <title></title>
                 <meta name="viewport" content="width=device-width, initial-scale=1">
                 <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+                <!-- <link rel ="stylesheet" type="text/css" href ="assets/css/bootstrap.css"> -->
                 <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-                <script src="main.js"></script>
+                <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+                <script src="assets/js/bootstrap.js"></script>
+
             </head>
             <body>
              <header>
@@ -22,11 +25,13 @@
                                 </div>
                                     <ul class="main-nav">
                                         <center>
-                                        <a><li><img src = "assets/images/icons/msg.png" height="20" width="20" alt="Messages"></li></a>
-                                        <a><li><img src = "assets/images/icons/noti.png" height="20" width="20" alt="Notifications"></li></a>
+                                        <a><li><i class="fas fa-envelope" style="font-size:22px; margin-top:-10px;"></i></li></a>
+                                        <a><li><i class="fas fa-bell" style="font-size:22px; margin-top:-10px;" ></i></li></a>
                                         <a href="addmusic.php"><li><button class="uploadbttn"><strong>Upload</strong></button></li></a>
-                                        <a href="profile.php"><li>My Profile</li></a>   
+                                        <a href="profile.php"><li> <?php echo ($_SESSION['username']);?> </li></a>   
                                         <a href="includes/logout.inc.php"><li>Logout</li></a>
+
+                                        
                                         </center>
                                     </ul>
                         </div>

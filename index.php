@@ -1,6 +1,12 @@
  <?php
     session_start();
-    ?>
+
+if(isset($_SESSION['u_id'])){
+}
+else{
+    header("Location: ../login.php");
+}
+?>
  <!DOCTYPE html>
  <html>
 
@@ -29,11 +35,7 @@
          </div>
          <div class="content">
          <?php
-                if (isset($_SESSION['u_id'])) {
-                    echo '<p> Login successful!</p>';
-                } else {
-                    echo '<p> Logged out!</p>';
-                }
+                    echo '<p>Welcome '; echo ($_SESSION['username']);
                 ?>
          </div>
      </div>

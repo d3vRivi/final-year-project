@@ -34,7 +34,7 @@ body{
 
 }
 .inner-header{
-    width: 1000px;
+    width: 900px;
     height: 100%;
     display: block;
     margin: 0 auto;
@@ -83,6 +83,7 @@ body{
     float: left;
     padding: 0px 10px;
     text-decoration: none;
+   
 }
 .main-nav a li{
     display: table-cell;
@@ -100,11 +101,11 @@ body{
 .sidebar{
     /* background: rgb(255, 255, 255); */
     height: 100vh;
-    width: 190px;
+    width: 250px;
     padding-top: 25%;
-    margin-top: -21%; 
+    margin-top: -22%; 
     position: fixed;
-    left:7%;
+    left:3%;
     border-radius: 5px;
     /* box-shadow: 0 0 4px 0 rgba(41,39,44,.25);   */
 }
@@ -142,7 +143,7 @@ body{
     border-radius: 3px;
     color: white;
     /* font-weight: 600; */
-    font-size: 16px;
+    font-size: 15px;
 }
 
 
