@@ -1,3 +1,15 @@
+<?php
+require 'includes/dbh.inc.php';
+
+if(isset($_SESSION['u_id'])){
+    $userLoggedIn = $_SESSION['u_id'];
+    $user_details_query = mysqli_query($conn, "SELECT * FROM s_user_registrations WHERE u_id = '$userLoggedIn' ");
+    $user = mysqli_fetch_array($user_details_query);
+}
+else{
+    header("Location: ../login.php");
+}
+?>
 <!DOCTYPE html>
 <html>
         <head>
@@ -28,7 +40,7 @@
                                         <a><li><i class="fas fa-envelope" style="font-size:22px; margin-top:-10px;"></i></li></a>
                                         <a><li><i class="fas fa-bell" style="font-size:22px; margin-top:-10px;" ></i></li></a>
                                         <a href="addmusic.php"><li><button class="uploadbttn"><strong>Upload</strong></button></li></a>
-                                        <a href="profile.php"><li> <?php echo ($_SESSION['username']);?> </li></a>   
+                                        <a href="profile.php"><li> <?php echo $user['f_name'];?> </li></a>   
                                         <a href="includes/logout.inc.php"><li>Logout</li></a>
 
                                         

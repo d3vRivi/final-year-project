@@ -101,11 +101,11 @@ body{
 .sidebar{
     /* background: rgb(255, 255, 255); */
     height: 100vh;
-    width: 250px;
+    width: 260px;
     padding-top: 25%;
     margin-top: -22%; 
     position: fixed;
-    left:3%;
+    left:2%;
     border-radius: 5px;
     /* box-shadow: 0 0 4px 0 rgba(41,39,44,.25);   */
 }

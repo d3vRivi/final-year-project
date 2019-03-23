@@ -1,11 +1,5 @@
  <?php
     session_start();
-
-if(isset($_SESSION['u_id'])){
-}
-else{
-    header("Location: ../login.php");
-}
 ?>
  <!DOCTYPE html>
  <html>
@@ -36,6 +30,7 @@ else{
          <div class="content">
          <?php
                     echo '<p>Welcome '; echo ($_SESSION['username']);
+                    echo '<p>Welcome '; echo $user['f_name'];
                 ?>
          </div>
      </div>
