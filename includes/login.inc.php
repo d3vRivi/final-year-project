@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 if(isset($_POST['signin-submit'])){
 
@@ -26,6 +27,7 @@ if(isset($_POST['signin-submit'])){
                 $pwdCheck = password_verify($password, $row['password']);
                 if($pwdCheck == false){
                     header("Location: ../login.php?error=wrongpwd");
+                    echo "Wrong Password";
                     exit(); 
                 }
                 else if($pwdCheck == true){

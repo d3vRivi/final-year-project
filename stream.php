@@ -3,6 +3,7 @@ session_start();
 ?>
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,10 +24,12 @@ session_start();
                 <br>
                 Hear the latest posts from the people you're following:
                 <div>
-                    <audio controls src="http://kolber.github.io/audiojs/demos/mp3/juicy.mp3" preload="auto"></audio>
-                </div>          
+                    <audio controls src="http://kolber.github.io/audiojs/demos/mp3/juicy.mp3" preload="auto"> </audio>
+                </div>
             </div>
         </div>
-    </div> 
+    </div>
     <?php require 'footer.php'; ?>
 </body>
+
+</html> 

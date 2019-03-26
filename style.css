@@ -1,36 +1,42 @@
 body{
     width: 100vw;
     height: 100vh;
-    /* background-image: url(images/back1.jpg);
-    background-size: cover;
-    background-position: center; */
-    /* background-color: rgba(255, 255, 255, 0.801); */
     margin: 0;
     background:#f7f7f7;
-    overflow-x: hidden;
-   
+    overflow-x: hidden; 
 }
-.logo{
-    margin: 0 auto;
-    margin-left: 500px;
-}
-.header{
+.login-body{
     width: 100vw;
-    height: 8vh;
-    padding: 2px;
-    position: static;
-    top:0;
-    left: 0;
+    height: 100vh;
+    /* background-image: url(assets/images/icons/mainlogo2.png); */
+    background-size: cover;
+    background-position: center; 
+    overflow-y: hidden;
+    margin: 0;
+    overflow: scroll;
+    overflow-x: hidden; 
+    background: black;
 }
+.login-logo{
+    margin: 0 auto; 
+    /* background: white; */
+    height: 100px;
+    width: 100vw;
+    display: grid;
+    justify-content: center;
+    margin-top: 0px;
+}
+
 .main-header{
     width: 100vw;
-    height: 50px;
+    height: 55px;
     background-color:rgb(0, 0, 0) ;
     top: 0;
     position: fixed;
     box-shadow: 0 0 4px 0 rgba(41,39,44,.25);
     z-index: 1000;
     margin: 0 auto;
+    padding: 1px;
 
 }
 .inner-header{
@@ -40,28 +46,34 @@ body{
     margin: 0 auto;
     text-decoration: none;
     list-style: none;
-    padding: 0;    
+    padding: 17px;    
 
 }
 .logo-container{
     height: 100%;
-    display: table;
+    display: block;
+    position: absolute;
     float: left;
-}
-.logo-container h2{
-    color: white;
-    height: 100%;
-    display: table-cell;
-    vertical-align: middle;
-    font-family: 'Lato', sans-serif;
+    padding: 0px;
+    margin-bottom: 1px;
+    margin-top:-12px;
+    margin-left: -30px;
+
+
 }
 .search-container{
-    width: 425px;
+    width: 420px;
     float: left;
+    display: block;
+    position: relative;
+    margin-top:-15px;
+    margin-left:40px;
+    /* height: 20px; */ 
+    
     
 }
 .search-container input[type=text]{
-    margin-top: 5px;
+    margin-top: 2px;
     height: 100%;
     width: 400px;
     padding: 10px;
@@ -69,9 +81,10 @@ body{
     /* background: rgb(97, 97, 97); */
     border: 1px;  
     /* color: white; */
-    border-radius: 22px;
+    border-radius: 20px;
     background: #f7f7ff;
 }
+
 .main-nav{
     float: left;
     height: 100%;
@@ -101,24 +114,26 @@ body{
 .sidebar{
     /* background: rgb(255, 255, 255); */
     height: 100vh;
-    width: 260px;
-    padding-top: 25%;
-    margin-top: -22%; 
+    width: 275px;
+    margin-top: 0%; 
     position: fixed;
-    left:2%;
+    left:1%;
     border-radius: 5px;
+    /* display: block; */
     /* box-shadow: 0 0 4px 0 rgba(41,39,44,.25);   */
 }
 .side-nav{
     padding: 0px;
-    margin-top:0%;
+    margin-top:13%;
     text-decoration: none;
     list-style: none;
+    display: block;
 }
 .side-nav li{
     text-decoration: none;
     list-style: none;
     border-bottom: 1px solid rgba(0, 0, 0, 0.055);
+    padding: 10px;
 }
 
 .side-nav a{
@@ -130,7 +145,6 @@ body{
     list-style: none;
     color: black;
     padding-right: 20%;
-    block-size: 20px;
 }
 .side-nav li :hover{
     color: rgb(255, 255, 255);
@@ -158,13 +172,15 @@ body{
 .form-container{
     font-family: 'Lato', sans-serif;
     margin: 0 auto;
-    width: 450px;
-    font-size: 20px;
-    /* background: rgba(207, 207, 207, 0.829); */
-    padding: 15px;
+    width: 520px;
+    /* font-size: 14px; */
     display: grid;
     justify-content: center;
-    height: 320px;
+    height: 520px;
+    background: #f7f7f7;
+    border-radius: 5px;
+    box-shadow: 0 0 6px 0 white;
+    margin-top: 50px;
 }
 .form-container-reg{
     font-family: 'Lato', sans-serif;
@@ -176,6 +192,7 @@ body{
     display: grid;
     justify-content: center;
     height: 360px; 
+    /* box-shadow: 0 0 6px 0 white; */
 }
 .uploadbttn{
     display: block;
@@ -215,19 +232,30 @@ body{
     padding: 15px;
     margin: 5px;
 }
-.div2{
+.div2-login{
     display: grid;
     justify-content: center;
     width: 500px;
     /* background: green; */
+}
+.div2-reg{
+    display: grid;
+    justify-content: center;
+    width: 450px;
+    background: #f7f7f7;
+    border-radius: 5px;
+    box-shadow: 0 0 4px 0 rgba(41,39,44,.25);
+    padding: 15px;
+    margin-top: 35px;
+
 }
 .bttn-signin{
     background-color: #800020;
     color: white;
     border: 0;
     font-size: 23px;
-    padding: 8px;
-    width: 120px;
+    padding: 10px;
+    width: 130px;
     border-radius: 22px;
 }
 #buttondiv{
@@ -243,17 +271,23 @@ body{
     text-align: center;
     width: 480px;
     margin: 0 auto;
-    display: flex;
+    display: grid;
     justify-content: center;
     /* background: rgb(115, 173, 207); */
+    /* height: 0px; */
+    margin-top:100px;
+    background:white;
+    border-radius: 5px;
+    box-shadow: 0 0 4px 0 rgba(41,39,44,.25);
+    
 }
-h1{
+.form-container h1{
     font-family: 'Lato Medium', sans-serif;
     text-align: center;
     font-weight: 400;  
     /* color: white; */
 }
-h3{
+.form-container h3{
     font-family: 'Lato', sans-serif;
     color: #c40538;
     text-align: center;
@@ -262,11 +296,11 @@ h3{
 #boxdiv{
     font-family: 'Lato', sans-serif;
     font-size: 12px;
-    width: 9em; 
+    width: 12em; 
     display: flex;
-    justify-content: center;
+    justify-content: left;
     /* color: white; */
-    /* background: red; */
+    /* background:  */
    
 }
 #boxandbutton{
@@ -275,15 +309,16 @@ h3{
     
 }
 .div3{
+    display: grid;
     font-weight: 100;
     font-size: 15px;
     text-align: center;
     margin: 1 auto;
-    padding: 40px;
-    bottom: 15vh;
+    padding: 30px;
     align-content: center;
-    /* color: white; */
-    
+    color: black;
+    /* background: blanchedalmond;  */
+    height: 100px;  
 }
 #bttn-register{
     background-color: purple;
@@ -316,6 +351,7 @@ h3{
 }
 #main{
     width: 100vw;
+    height: 100vh;
 }
 .body-grid{
     /* background: black; */
@@ -331,12 +367,14 @@ h3{
     overflow-y: auto;
 
 }
-.profile{
-    background: rgb(255, 255, 255);
-    width: 300px;
-    height:400px;
+.profile-details{
+    /* background: rgba(128, 128, 128, 0.349); */
+    width: 812px;
+    height:120px;
     box-shadow: 0 0 4px 0 rgba(41,39,44,.25);
-    margin-top: 20px;
+    margin-top: 0px;
+    margin: 0 auto;
+    padding: 10px;
 
 }
 .content{
@@ -345,7 +383,7 @@ h3{
     width: 55vw;
     height: 100vh;
     background: rgb(255, 255, 255);
-    margin-top:1%;
+    margin-top:2%;
     position: absolute;
     justify-content: center;
     box-shadow: 1 black;
@@ -355,6 +393,7 @@ h3{
     overflow-x: hidden;
     overflow-y: auto;
     padding: 1%;
+
 }
 .player_plugin{
     display: grid;
@@ -448,17 +487,17 @@ h3{
     
 }
 
-.left {
+.player .left {
        width:80px;
        background-image:url(https://i.scdn.co/image/9ca53beeb365f468b023a8360634f309325b5487);
        background-size:cover;
 }
-.right {
+.player .right {
        flex-grow:1;
        display:flex;
        flex-direction:column;
     }
-.top {
+.player .right .top {
           flex-grow:1;
           display:flex;
           flex-direction:column;
@@ -469,11 +508,11 @@ h3{
           bottom: 10px;
         
        }
-.top a{
+.player .top a{
     color: #000;
     text-decoration: none;
 }
-.song  {
+.player .song  {
              font-size:1.2em;
              font-weight:600;
              text-decoration: none;
@@ -481,19 +520,49 @@ h3{
              font-family: Lato;
           }
        
-.bottom {
+.player .bottom {
             /* background: #000; */
             left: 500px;
             position: absolute;
             height: 80px;
             top: 0;
           }
-.bottom audio{
+.player .bottom audio{
                display: flex;
                height:80px;
                width: 1200px;
                box-shadow: 0 0 4px 0 rgba(41,39,44,.25);
             }
-    
- 
 
+.user-stats{
+    display: block;
+    margin-top:-90px;
+    margin-left: 80px;
+    /* position: absolute; */
+    right: 15px;
+    height: 50px;
+    /* background: #ff0000; */
+    width: 500px;
+    justify-content: center;   
+}
+.user-stats li{
+    /* display: table-cell; */
+    vertical-align: middle;
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    text-decoration: none;
+    /* background: #f7f7f7; */
+    width: 150px;
+    padding: 0px;
+    list-style: none;
+
+}
+.user-stats span{
+    font-size:18px;
+    margin: 0 auto;
+    vertical-align: middle;
+    padding: 10px;
+    font-weight: 400px;
+    /* background: blue; */
+
+}

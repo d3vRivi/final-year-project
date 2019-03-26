@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 
 ?>
@@ -16,23 +15,19 @@ session_start();
     <script src="main.js"></script>
 </head>
 
-<body>
-    <div class="logo">
+<body class="login-body">
 
-    </div>
-
-    <div class="text">
-        <div id="text1">
-            <h1>Welcome</h1>
-            <h3>Sign in and grow in your music world.</h3>
-        </div>
+    <div class="login-logo">
+        <img src="assets/images/icons/mainlogo3.png" height="120" width="420">
     </div>
 
     <div id="main">
         <div class="form-container">
+            <h1>Welcome</h1>
+            <h3>Sign in and grow in your music world.</h3>
 
             <div class="div1">
-                <form action='includes/login.inc.php' class="div2" method="post">
+                <form action='includes/login.inc.php' class="div2-login" method="post">
                     <input type="text" class="inputc" name="mailuid" placeholder="Email or Username" required>
                     <input type="password" class="inputc" name="password" placeholder="Password" required>
 
@@ -41,9 +36,7 @@ session_start();
                             <input type="checkbox" class="box" name="remember me">Remember me
                         </div>
                         <div id=buttondiv>
-
                             <button type="submit" class="bttn-signin" name="signin-submit" value="Sign in">Sign In</button>
-
                         </div>
                 </form>
             </div>
@@ -62,4 +55,4 @@ session_start();
     </div>
 </body>
 
-</html> 
+</html>

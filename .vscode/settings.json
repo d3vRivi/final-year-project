@@ -1,0 +1,5 @@
+{
+    "intelephense.format.enable": false,
+    "intelephense.completion.insertUseDeclaration": false,
+    "php.validate.enable": false
+}

@@ -1,4 +1,8 @@
 <?php
+ob_start(); //Turns on output buffering
+
+
+$timezone = date_default_timezone_set('Asia/Colombo');
 
 $servername = "localhost";
 $dBUsername = "root";

@@ -13,7 +13,7 @@
                 <div class="left"></div>
                 <div class="right">
                     <div class="top">
-                        <p style="color:black; font-size:12px;"> NOW PLAYING</p>
+                        <p style="color:black; font-size:12px; margin-bottom:0px;"> NOW PLAYING</p>
                         <a class="song" href="https://open.spotify.com/track/52LlzTfdulBMiwH4BZy5Sq?si=1c1rwqNYSf6ZaaRbzlstLQ">Let's Go To the Forest</a>
                         <a class="artist" href="https://open.spotify.com/artist/6OqhFYFJDnBBHas02HopPT?si=vQaSwY1DRkyhj-eoKZlMrw">Kero Kero Bonito</a>
                     </div>
