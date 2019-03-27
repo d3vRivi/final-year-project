@@ -13,7 +13,7 @@ if(isset($_POST['signin-submit'])){
         exit(); 
     }
     else{
-        $sql = "SELECT * FROM s_user_registrations WHERE username=? OR email=?;";
+        $sql = "SELECT * FROM users WHERE username=? OR email=?;";
         $stmt = mysqli_stmt_init($conn);
         if(!mysqli_stmt_prepare($stmt, $sql)){
             header("Location: ../login.php?error=sqlerror");

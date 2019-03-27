@@ -1,10 +1,9 @@
 <?php
 require 'includes/dbh.inc.php';
 
-
-if (isset($_SESSION['u_id'])) {
-    $userLoggedIn = $_SESSION['u_id'];
-    $user_details_query = mysqli_query($conn, "SELECT * FROM s_user_registrations WHERE u_id = '$userLoggedIn' ");
+if (isset($_SESSION['username'])) {
+    $userLoggedIn = $_SESSION['username'];
+    $user_details_query = mysqli_query($conn, "SELECT * FROM users WHERE username = '$userLoggedIn' ");
     $user = mysqli_fetch_array($user_details_query);
 } else {
     header("Location: ../login.php");
@@ -58,11 +57,14 @@ if (isset($_SESSION['u_id'])) {
                             <a href="addmusic.php">
                                 <li><button class="uploadbttn"><strong>Upload</strong></button></li>
                             </a>
-                            <a href="profile.php">
-                                <li> <?php echo $user['f_name']; ?> </li>
+                            <a href="profile.php"> 
+                                <li style="background: white; border-radius: 30px; width:40px; margin-top:-5px; display:grid;"><img src=" <?php echo $user['profile_pic']; ?>" height="40" width="40"></li>
                             </a>
+                            <!-- <a href="profile.php">
+                                <li> <?php echo $user['f_name']; ?> </li>
+                            </a> -->
                             <a href="includes/logout.inc.php">
-                                <li>Logout</li>
+                                <li><i class="fas fa-sign-out-alt" style="font-size:17px; margin-top:0px;"></i> Logout</li>
                             </a>
                         </center>
                     </ul>
@@ -72,5 +74,3 @@ if (isset($_SESSION['u_id'])) {
         </div>
     </header>
 </body>
-
-</html>

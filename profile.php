@@ -33,22 +33,25 @@ session_start();
             <?php require 'sidebar.php' ?>
             <div class="content">
                 <div class="profile-details">
-
-                    <a href="#"> <img src=" <?php echo $user['profile_pic']; ?>" height="100" width="100"> </a>
-                    <ul class="user-stats"">
-                        <li>
-                            <span>0</span>
-                            Connections
-                        </li>
-                        <li>
-                            <span>0</span>
-                            Posts
-                        </li>
-                        <li>
-                            <span>0</span>
-                            Tracks
-                        </li>
+                    <a href="<?php echo $userLoggedIn; ?>"> <img src=" <?php echo $user['profile_pic']; ?>" height="130" width="130"> </a>
+                    <ul class ="user-info">
+                        <a href="<?php echo $userLoggedIn; ?>"> <li> <?php echo $user['f_name']. " ". $user['l_name']; ?> </li> </a>
                     </ul>
+                  
+                        <ul class="user-stats"">
+                            <li>
+                                <span>0</span>
+                                Connections
+                            </li>
+                            <li>
+                                <span><?php echo $user['num_posts']; ?></span>
+                                Posts
+                            </li>
+                            <li>
+                                <span>0</span>
+                                Tracks
+                            </li>
+                        </ul>
                 <br><br>
 
                 

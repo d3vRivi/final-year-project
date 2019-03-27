@@ -59,7 +59,7 @@ if(isset($_POST['register-submit'])){
         exit();
     }
     else{
-        $sql = "SELECT u_id FROM s_user_registrations WHERE u_id=?";
+        $sql = "SELECT u_id FROM users WHERE u_id=?";
         $stmt = mysqli_stmt_init($conn);
 
         if(!mysqli_stmt_prepare($stmt, $sql)){
@@ -79,7 +79,7 @@ if(isset($_POST['register-submit'])){
             else{
                 $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
 
-                $sql = "INSERT INTO s_user_registrations VALUES('','$firstname', '$lastname', '$email', '$username', '$hashedPwd', '$date', '$profile_pic', '0', '0', 'no', ',') ";
+                $sql = "INSERT INTO users VALUES('','$firstname', '$lastname', '$email', '$username', '$hashedPwd', '$date', '$profile_pic', '0', '0', 'no', ',') ";
                 $stmt = mysqli_stmt_init($conn);
                 if(!mysqli_stmt_prepare($stmt, $sql)){
                 header("Location: ../register.php?error=sqlerror");
