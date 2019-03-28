@@ -37,9 +37,8 @@ if (isset($_SESSION['username'])) {
         <div class="main-header">
             <div class="inner-header">
                 <div class="logo-container">
-                    <a>
-                        <li><img src="assets/images/icons/mlogo.png" height="40" width="60" style="margin-top:5%;"
-                                alt="Messages"></li>
+                    <a href="index.php">
+                        <li><img src="assets/images/icons/mlogo.png" height="40" width="60" style="margin-top:5%;"></li>
                     </a>
                 </div>
                 <div class="navigation">
@@ -63,7 +62,7 @@ if (isset($_SESSION['username'])) {
                             <!-- <a href="profile.php">
                                 <li> <?php echo $user['f_name']; ?> </li>
                             </a> -->
-                            <a href="includes/logout.inc.php">
+                            <a href="includes/handlers/logout.php">
                                 <li><i class="fas fa-sign-out-alt" style="font-size:17px; margin-top:0px;"></i> Logout</li>
                             </a>
                         </center>
