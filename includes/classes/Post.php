@@ -42,15 +42,15 @@ class Post{
        }
     }
 
-    public function loadPostsFriends($data, $limit){
+    public function loadPostsConnections($data, $limit){
 
-        $page =$data['page'];
+        $page =  $data['page'];
         $userLoggedIn = $this->user_obj->getUsername();
 
         if($page == 1)
             $start = 0;
         else
-            $start - ($page - 1) * $limit;
+            $start = ($page - 1) * $limit;
 
         $str = ""; //String to return
         $data_query = mysqli_query($this->conn, "SELECT * FROM posts WHERE deleted='no' ORDER BY id DESC");
@@ -82,105 +82,127 @@ class Post{
                 continue;
             }
 
-            if($num_iterations++ < $start)
-                continue;
+            $user_logged_obj = new User($this->conn, $userLoggedIn);
+				if($user_logged_obj->isConnection($added_by)){
 
-                //Once 10 posts have been loaded, break
-                if($count > $limit){
-                    break;
+                if($num_iterations++ < $start)
+                    continue;
+
+                    //Once 10 posts have been loaded, break
+                    if($count > $limit){
+                        break;
+                    }
+                    else{
+                        $count++;
+                    }
+
+                $user_details_query = mysqli_query($this->conn, "SELECT f_name, l_name, profile_pic FROM users WHERE username = '$added_by'");
+                $user_row = mysqli_fetch_array($user_details_query);
+                $first_name = $user_row['f_name'];
+                $last_name = $user_row['l_name'];
+                $profile_pic = $user_row['profile_pic'];
+
+                ?>
+
+                <script>
+                    	function toggle<?php echo $id; ?>() {
+
+                            var element = document.getElementById("toggleComment<?php echo $id; ?>");
+
+                            if(element.style.display == "block") 
+                                element.style.display = "none";
+                            else 
+                                element.style.display = "block";
+		                }
+                </script>
+
+                <?php 
+
+                //Timeframe
+                $date_time_now = date("Y-m-d H:i:s");
+                $start_date = new DateTime($date_time); //Time of post
+                $end_date  = new DateTime($date_time_now); //Current time
+                $interval = $start_date->diff($end_date); //Difference between dates
+                if($interval->y >= 1){
+                    if($interval == 1)
+                        $time_message = $interval->y . " year ago"; //1 year ago
+                    else
+                    $time_message = $interval->y . " years ago"; //1+ year ago
+                } 
+                else if($interval->m >=1){
+                    if($interval->d == 0){
+                        $days = "ago";
+                }
+                else if($interval->d >=1){
+                    $days = $interval->d . " day ago";
                 }
                 else{
-                    $count++;
-                 }
+                    $days = $interval->d . "days ago";
+                }
 
-            $user_details_query = mysqli_query($this->conn, "SELECT f_name, l_name, profile_pic FROM users WHERE username = '$added_by'");
-            $user_row = mysqli_fetch_array($user_details_query);
-            $first_name = $user_row['f_name'];
-            $last_name = $user_row['l_name'];
-            $profile_pic = $user_row['profile_pic'];
+                if($interval->m == 1){
+                    $time_message = $interval->m . " month". $days;
+                }
+                else{
+                    $time_message = $interval->m . " months". $days;
+                }
 
-
-
-            //Timeframe
-            $date_time_now = date("Y-m-d H:i:s");
-            $start_date = new DateTime($date_time); //Time of post
-            $end_date  = new DateTime($date_time_now); //Current time
-            $interval = $start_date->diff($end_date); //Difference between dates
-            if($interval->y >= 1){
-                if($interval == 1)
-                    $time_message = $interval->y . " year ago"; //1 year ago
-                else
-                $time_message = $interval->y . " years ago"; //1+ year ago
-            } 
-            else if($interval->m >=1){
-                if($interval->d == 0){
-                    $days = "ago";
             }
             else if($interval->d >=1){
-                $days = $interval->d . " day ago";
+                if($interval->d ==1){
+                    $time_message = "Yesterday";
+                }
+                else{
+                    $time_message = $interval->d . " days ago";
+                }
+            }
+            else if($interval->h >= 1){
+                if($interval->h ==1){
+                    $time_message = $interval->h . " hour ago";
+                }
+                else{
+                    $time_message = $interval->h . " hours ago";
+                }
+            }
+            else if($interval->i >= 1){
+                if($interval->i ==1){
+                    $time_message = $interval->i . " minute ago";
+                }
+                else{
+                    $time_message = $interval->i . " minutes ago";
+                }
             }
             else{
-                $days = $interval->d . "days ago";
+                if($interval->s <30 ){
+                    $time_message = "Just now";
+                }
+                else{
+                    $time_message = $interval->s . " seconds ago";
+                }
             }
 
-            if($interval->m == 1){
-                $time_message = $interval->m . " month". $days;
-            }
-            else{
-                $time_message = $interval->m . " months". $days;
-            }
+            $str .= "<div class ='status-post' onClick='javascript:toggle$id()'>
+                        <div class='post_profile_pic'>
+                            <img src='$profile_pic' width='50'>
+                        </div>
 
-        }
-        else if($interval->d >=1){
-            if($interval->d ==1){
-                $time_message = "Yesterday";
-            }
-            else{
-                $time_message = $interval->d . " days ago";
-            }
-        }
-        else if($interval->h >= 1){
-            if($interval->h ==1){
-                $time_message = $interval->h . " hour ago";
-            }
-            else{
-                $time_message = $interval->h . " hours ago";
-            }
-        }
-        else if($interval->i >= 1){
-            if($interval->i ==1){
-                $time_message = $interval->i . " minute ago";
-            }
-            else{
-                $time_message = $interval->i . " minutes ago";
-            }
-        }
-        else{
-            if($interval->s <30 ){
-                $time_message = "Just now";
-            }
-            else{
-                $time_message = $interval->s . " seconds ago";
-            }
-        }
+                        <div class ='posted_by' style='color:black;'>
+                            <a href='$added_by' style='color:#800020; font-weight:bold'> $first_name $last_name </a> $user_to <br>
+                            <p class='post-timestamp'>$time_message<p>
+                        </div>
+                        <div id='post_body'>
+                            $body
+                            <br>
+                        </div>
 
-        $str .= "<div class ='status-post'>
-                    <div class='post_profile_pic'>
-                        <img src='$profile_pic' width='50'>
+                    </div> 
+                    <div class='post_comment' id='toggleComment$id' style='display:none;'>
+                        <iframe src='comment_frame.php  ?post_id=$id id='comment_iframe' frameborder='0'></iframe>
                     </div>
+                    <br> ";
+                }
 
-                    <div class ='posted_by' style='color:black;'>
-                        <a href='$added_by' style='color:#800020; font-weight:bold'> $first_name $last_name </a> $user_to <br>
-                        <p class='post-timestamp'>$time_message<p>
-                    </div>
-                    <div id='post_body'>
-                        $body
-                        <br>
-                    </div>
-
-                </div> <hr width='550px' style= 'margin-left:0px;'> ";
-
-            }
+            } //End while loop
 
             if($count > $limit)
                 $str .= "<input type='hidden' class='nextPage' value='" . ($page + 1) . "'>
@@ -188,12 +210,11 @@ class Post{
             else
             $str .= "<input type='hidden' class='noMorePosts' value='true'><p style='text-align:center; '>
             No more posts to show! </p>";
-
+              
         }
 
             echo $str;
     }
 
 }
-    
 ?>

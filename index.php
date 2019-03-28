@@ -3,14 +3,7 @@
     require 'includes/dbh.inc.php';
     include ("includes/classes/User.php");
     include ("includes/classes/Post.php");
-
-    if (isset($_SESSION['username'])) {
-        $userLoggedIn = $_SESSION['username'];
-        $user_details_query = mysqli_query($conn, "SELECT * FROM users WHERE username = '$userLoggedIn' ");
-        $user = mysqli_fetch_array($user_details_query);
-    } else {
-        header("Location: ../login.php");
-    }
+    include("header.php");  
     
     if(isset($_POST['post'])){
         $post = new Post($conn, $userLoggedIn);
@@ -56,7 +49,7 @@
                  <section> Create Post </section>
                  <form class="post-form" action="index.php" method="POST">
                      <section class="profile-img"> 
-                         <a href="profile.php"> <img src=" <?php echo $user['profile_pic']; ?>" height="35" width="35"> </a> 
+                         <a href="<?php echo $userLoggedIn; ?>"> <img src=" <?php echo $user['profile_pic']; ?>" height="35" width="35"> </a> 
                     </section>
                      <textarea name="post-text" id="post-text"
                          placeholder="What's on your mind today, <?php echo $user['f_name']; ?>?"></textarea><br>
@@ -82,7 +75,7 @@
                 $.ajax({
                     url:"includes/handlers/ajax_load_posts.php",
                     type: "POST",
-                    data: "page=1&userLoggedIn=" +userLoggedIn,
+                    data: "page=1&userLoggedIn=" + userLoggedIn,
                     cache:false,
 
                     success: function(data){
@@ -95,7 +88,7 @@
                 $(window).scroll(function(){
                     var height = $('.posts_area').height(); //Div containing posts
                     var scroll_top = $(this).scrollTop();
-                    var page = $('.post_area').find('.nextPage').val();
+                    var page = $('.posts_area').find('.nextPage').val();
                     var noMorePosts = $('.posts_area').find('.noMorePosts').val();
 
                     if ((document.body.scrollHeight == document.body.scrollTop + window.innerHeight) && noMorePosts == 'false'){
@@ -105,7 +98,7 @@
                         var ajaxReq = $.ajax({
                             url:"includes/handlers/ajax_load_posts.php",
                             type: "POST",
-                            data: "page=" + page + "&userLoggedIn=" +userLoggedIn,
+                            data: "page=" + page + "&userLoggedIn=" + userLoggedIn,
                             cache:false,
 
                             success: function(response){

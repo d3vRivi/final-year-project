@@ -27,6 +27,13 @@ class User{
         return $row['f_name']. " " . $row['l_name'];
     }
 
+    public function getProfilePic(){
+        $username = $this->user['username'];
+        $query = mysqli_query($this->conn, "SELECT profile_pic FROM users WHERE username='$username'");
+        $row = mysqli_fetch_array($query);
+        return $row['profile_pic'];
+    }
+
     public function isClosed(){
         $username = $this->user['username'];
         $query = mysqli_query($this->conn, "SELECT user_closed FROM users WHERE username='$username'");
@@ -37,6 +44,17 @@ class User{
         else
             return false;
         }
-    }
+    
+        public function isConnection($username_to_check){ //Check if user is basically a friend
+            $usernameComma = ",". $username_to_check . ",";
+    
+            if((strstr($this->user['connections_array'], $usernameComma) || $username_to_check == $this->user['username'])) {
+                return true;
+            }
+            else{
+                return false;
 
+            }
+        }
+    }
 ?>

@@ -114,7 +114,7 @@ body{
 .sidebar{
     /* background: rgb(255, 255, 255); */
     height: 100vh;
-    width: 275px;
+    min-width: 275px;
     margin-top: 0%; 
     position: fixed;
     left:1%;
@@ -297,9 +297,7 @@ body{
    
 }
 #boxandbutton{
-    display: flex;
-
-    
+    display: flex;  
 }
 .div3{
     display: grid;
@@ -475,7 +473,6 @@ body{
 }
 .display-posts{
     width:550px;
-    /* background:white; */
 }
 .content{
     font-family: 'Lato', sans-serif;

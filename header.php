@@ -18,7 +18,7 @@ if (isset($_SESSION['username'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css?v=<?php echo time(); ?>" />
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
@@ -56,7 +56,7 @@ if (isset($_SESSION['username'])) {
                             <a href="addmusic.php">
                                 <li><button class="uploadbttn"><strong>Upload</strong></button></li>
                             </a>
-                            <a href="profile.php"> 
+                            <a href="<?php echo $userLoggedIn; ?>"> 
                                 <li style="background: white; border-radius: 30px; width:40px; margin-top:-5px; display:grid;"><img src=" <?php echo $user['profile_pic']; ?>" height="40" width="40"></li>
                             </a>
                             <!-- <a href="profile.php">
