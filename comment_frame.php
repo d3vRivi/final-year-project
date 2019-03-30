@@ -1,9 +1,21 @@
-<<!DOCTYPE html>
+<?php
+	session_start();
+?>
+<!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" media="screen" href="style.css?v=<?php echo time(); ?>" />
+	<link rel="stylesheet" type="text/css" media="screen" href="style.css?v=<?php echo time(); ?>" />
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+	
 </head>
-<body>
+<body class="comment-frame-body">
+	<style type="text/css">
+		*{
+			font-family: 'Lato', sans-serif;
+			font-size: 14px;
+		}
+	</style>
+
 
 <?php
 require 'includes/dbh.inc.php';
@@ -48,13 +60,14 @@ if (isset($_SESSION['username'])) {
 		$post_body = mysqli_escape_string($conn, $post_body);
 		$date_time_now = date("Y-m-d H:i:s");
 		$insert_post = mysqli_query($conn, "INSERT INTO comments VALUES ('', '$post_body', '$userLoggedIn', '$posted_to', '$date_time_now', 'no', '$post_id')");
-		
 
-		echo "<p>Comment Posted! </p>";
+
+		echo "<p>Comment Posted!</p>";
+
 	}
 	?>
 	<form action="comment_frame.php?post_id=<?php echo $post_id; ?>" id="comment_form" name="postComment<?php echo $post_id; ?>" method="POST">
-		<textarea name="post_body"></textarea>
+		<textarea name="post_body" placeholder="Write a comment"></textarea>
 		<input type="submit" name="postComment<?php echo $post_id; ?>" value="Post">
 	</form>
 
@@ -145,7 +158,7 @@ if (isset($_SESSION['username'])) {
 				<a href="<?php echo $posted_by?>" target="_parent"><img src="<?php echo $user_obj->getProfilePic();?>" title="<?php echo $posted_by; ?>" style="float:left;" height="30"></a>
 				<a href="<?php echo $posted_by?>" target="_parent"> <b> <?php echo $user_obj->getFirstAndLastName(); ?> </b></a>
 				&nbsp;&nbsp;&nbsp;&nbsp; <?php echo $time_message . "<br>" . $comment_body; ?> 
-				<hr>
+				
 			</div>
 			<?php
 

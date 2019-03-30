@@ -5,6 +5,12 @@ body{
     background:#f7f7f7;
     overflow-x: hidden; 
 }
+a {
+    color: #800020;
+    text-decoration: none;
+    /* font-weight: bold; */
+
+}
 .login-body{
     width: 100vw;
     height: 100vh;
@@ -501,6 +507,7 @@ body{
     background: white;
     border-radius: 5px;
     box-shadow: 0 0 1px 0 rgba(41,39,44,.25);
+    cursor: pointer;
 }
 .post_profile_pic{
     float: left;
@@ -517,7 +524,112 @@ body{
 .post-timestamp{
     font-size: 13px;
     color: rgba(0, 0, 0, 0.699);
+    font-family: 'Lato', sans-serif;
+
 }
+#comment_iframe{
+    max-height:300px;
+    width:100%;
+}
+.comment-frame-body{
+    background: white;
+    border-radius: 20px;
+    margin: 10px;
+}
+.comment_section{
+    padding: 10px 10px 10px 10px;
+    background: rgba(218, 218, 218, 0.356);
+    margin: 10px 5px;
+    border-radius: 30px;
+    width:500px;
+    box-shadow: 0 0 1px 0 rgba(41,39,44,.25);
+}
+.comment_section img {
+    margin: 0 3px 3px 3px;
+    border-radius: 20px;
+}
+#comment_form textarea{
+    border-color: #31313180;
+    border-radius: 30px;
+    width: 70%;
+    height: 20px;
+    padding: 5px 15px;
+    outline: 0;
+    margin-left: 10px;
+    font-size: 14px;
+    font-family: 'Lato', sans-serif;
+
+}
+#comment_form input[type="submit"]{
+    border:none;
+    background-color: #800020;
+    color: white;
+    border-radius: 20px;
+    padding: 8px 10px;
+    margin-top:0px;
+    position: absolute;
+    cursor: pointer;
+    margin-left: 3px;
+    font-family: 'Lato', sans-serif;
+
+}
+.newsfeedPostOptions{
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.420);
+    font-family: 'Lato', sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    height: auto;
+    padding:0px;
+    
+}
+.newsfeedPostOptions iframe{
+    border: 0px;
+    height: 20px;
+    width: 120px;
+}
+.comment_text{
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.420);
+    font-family: 'Lato', sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    height: auto;
+    padding:0px;
+    display:inline-block;
+}
+.like_text{
+    color: rgba(0, 0, 0, 0.420);
+    font-family: 'Lato', sans-serif;
+    padding: 0px;
+    height: auto;
+    width: auto;
+    font-size: 15px;
+    font-weight: bold;
+    display:inline-block;
+ 
+}
+.comment_like{
+    background-color: transparent;
+    border:none;
+    font-family: 'Lato', sans-serif;
+    font-size: 15px;
+    color: rgba(0, 0, 0, 0.420);
+    outline:0;
+    padding:1px;
+}
+
+.like_value{
+    font-family: 'Lato', sans-serif;
+    display: inline-block;
+    color: rgba(0, 0, 0, 0.420);
+    font-size: 15px;
+    font-weight: bold;
+    height: auto;
+
+}
+
+
 
 .player_plugin{
     display: grid;
