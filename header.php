@@ -1,5 +1,8 @@
 <?php
+
 require 'includes/dbh.inc.php';
+include ("includes/classes/User.php");
+include ("includes/classes/Post.php");
 
 if (isset($_SESSION['username'])) {
     $userLoggedIn = $_SESSION['username'];

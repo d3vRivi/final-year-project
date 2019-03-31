@@ -3,7 +3,7 @@
     require 'includes/dbh.inc.php';
     include ("includes/classes/User.php");
     include ("includes/classes/Post.php");
-    include("header.php");  
+    include ("header.php");  
     
     if(isset($_POST['post'])){
         $post = new Post($conn, $userLoggedIn);

@@ -174,6 +174,7 @@ a {
     width: 100vw;
     display: flex;
     flex-direction: column;
+    padding-top: 0%;
 }
 .form-container{
     font-family: 'Lato', sans-serif;
@@ -361,25 +362,31 @@ a {
     margin-top:1%;
     grid-template-rows: repeat(3, 1fr);
     grid-template-columns: repeat(2, 350px);
-    overflow: scroll;
+    /* overflow: scroll;
     overflow-x: hidden;
-    overflow-y: auto;
+    overflow-y: auto; */
+    padding-top: 0%;
 
 }
-.profile-details{
-    /* background: rgba(128, 128, 128, 0.349); */
-    width: 100%;
+.profile-detail{
+    background:white ;
+    width: 450px;
     height:150px;
     box-shadow: 0 0 4px 0 rgba(41,39,44,.25);
-    margin-top: 0px;
-    margin: 0 auto;
+    margin: 0 0;
     padding: 10px;
     display: grid;
 }
+.profile-detail img{
+    border: 5px solid rgba(128, 128, 128, 0.420);
+    border-radius: 80px;
+    height:130px;
+    width:130px;
+}
+
 .user-info{
     /* background: #c40538; */
     height: 25px;
-    margin-top: -140px;
     display: block;
     width: 300px;
     margin-left: 150px;
@@ -392,10 +399,11 @@ a {
     color: black;
     text-decoration: none;
     font-size: 30px;
+    margin-top: -130px;
 }
 .user-stats{
     display: block;
-    margin-top:-90px;
+    margin-top:-120px;
     margin-left: 100px;
     /* position: absolute; */
     right: 15px;
@@ -486,7 +494,7 @@ a {
     width: 65vw;
     height: 100vh;
     /* background: rgb(255, 255, 255); */
-    margin-top:2%;
+    margin-top:3%;
     position: absolute;
     justify-content: center;
     box-shadow: 1 black;
@@ -495,7 +503,7 @@ a {
     /* overflow: scroll;
     overflow-x: hidden;
     overflow-y: auto; */
-    padding: 15px 5px;
+    /* padding: 10px 5px; */
     outline: 0;
 }
 
@@ -628,6 +636,48 @@ a {
     height: auto;
 
 }
+.danger{
+    background-color: #800020;
+}
+.warning{
+    background-color:purple;
+}
+.default{
+    background-color: purple;
+}
+.success{
+    background-color: purple;
+}
+.info{
+    background-color: purple;
+}
+.deep_blue{
+    background-color: darkslateblue;
+}
+
+.profile-button{
+    /* background:black; */
+    position: absolute;
+    display: inline-block;
+    margin: 100px 250px;
+}
+.profile-button input[type="submit"]{
+    border: none;
+    color: white;
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    padding: 5px 10px 5px 10px;
+    border-radius: 30px;
+
+
+}
+
+
+
+
+
+
+
 
 
 

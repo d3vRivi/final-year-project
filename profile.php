@@ -1,5 +1,29 @@
 <?php
-session_start();
+ session_start();
+
+include ("header.php");
+
+if (isset($_GET['profile_username'])) {
+    $username = $_GET['profile_username'];
+    $user_details_query = mysqli_query($conn, "SELECT * FROM users WHERE username = '$username' ");
+    $user_array = mysqli_fetch_array($user_details_query);
+
+    $num_connections = (substr_count($user_array['connections_array'], ",")) - 1;
+}
+
+if(isset($_POST['remove_connection'])) {
+    $user = new User($conn, $userLoggedIn);
+    $user->removeConnection($username);
+}
+
+if(isset($_POST['add_connection'])) {
+    $user = new User($conn, $userLoggedIn);
+    $user->sendRequest($username);
+}
+
+if(isset($_POST['respond_request'])) {
+   header("Location: requests.php");
+}
 
 ?>
 <!DOCTYPE html>
@@ -9,6 +33,8 @@ session_start();
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Profile</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css?v=<?php echo time(); ?>" />
+
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
@@ -35,32 +61,69 @@ session_start();
             <?php require 'sidebar.php' ?>
 
             <div class="content">
-                <div class="profile-details">
-                    <a href="<?php echo $userLoggedIn; ?>"> <img src=" <?php echo $user['profile_pic']; ?>" height="130" width="130"> </a>
+
+                <div class="profile-detail">
+                    <a href="<?php echo $username; ?>"> <img src=" <?php echo $user_array['profile_pic']; ?>"> </a>
+                        <div class = profile-button>
+                            <form action="<?php echo $username ?>" method="POST">
+                                <?php
+                                    $profile_user_obj = new User($conn, $username);
+                                    if($profile_user_obj->isClosed()){
+                                        header("Location: user_closed.php");   
+                                    }
+                                    
+                                    $logged_in_user_obj = new User($conn, $userLoggedIn);
+
+                                    if($userLoggedIn != $username){
+                                        if($logged_in_user_obj->isConnection($username)){
+                                            echo '<input type="submit" name="remove_connection" class="danger" value="Connected" ><br>';
+                                        }
+                                        else if($logged_in_user_obj->didReceiveRequest($username)){
+                                            echo '<input type="submit" name="respond_request" class="warning" value="Allow Connection" ><br>';
+                                        }
+                                        else if($logged_in_user_obj->didSendRequest($username)){
+                                            echo '<input type="submit" name="" class="default" value="Request Sent" ><br>';
+                                        }
+                                        else{
+                                            echo '<input type="submit" name="add_connection" class="success" value="Connect" ><br>';
+                                        }
+                                    }
+                                ?>
+                            </div> <!--Follow button -->
+
                     <ul class ="user-info">
-                        <a href="<?php echo $userLoggedIn; ?>"> <li> <?php echo $user['f_name']. " ". $user['l_name']; ?> </li> </a>
+                        <a href="<?php echo $username ?>"> <li> <?php echo $user_array['f_name']. " ". $user_array['l_name']; ?> </li> </a>
                     </ul>
                   
                         <ul class="user-stats"">
                             <li>
-                                <span>0</span>
-                                Connections
+                                Connections:
+                                <span><?php echo $num_connections ?></span>
                             </li>
                             <li>
-                                <span><?php echo $user['num_posts']; ?></span>
-                                Posts
+                                Posts:
+                                <span><?php echo $user_array['num_posts']; ?></span>
+                                
                             </li>
                             <li>
+                                Tracks:
                                 <span>0</span>
-                                Tracks
                             </li>
                         </ul>
-    
+        
 
-                        
-            </div>
-        </div>
-    </div>
+
+                     
+            
+            </div> <!--profile-details-->
+
+            <?php echo $username; ?>
+
+           
+
+        </div> <!--Content-->
+
+    </div><!--body-grid -->
 </body>
 
 </html>
