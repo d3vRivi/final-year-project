@@ -3,20 +3,20 @@ session_start();
 
 if(isset($_POST['signin-submit'])){
 
-    require 'dbh.inc.php';
+    require '../dbh.inc.php';
 
     $mailuid = $_POST['mailuid'];
     $password = $_POST['password'];
 
     if(empty($mailuid) || (empty($password))){
-        header("Location: ../login.php?error=emptyfields");
+        header("Location: ../../login.php?error=emptyfields");
         exit(); 
     }
     else{
         $sql = "SELECT * FROM users WHERE username=? OR email=?;";
         $stmt = mysqli_stmt_init($conn);
         if(!mysqli_stmt_prepare($stmt, $sql)){
-            header("Location: ../login.php?error=sqlerror");
+            header("Location: ../../login.php?error=sqlerror");
             exit();   
         }
         else{
@@ -26,7 +26,7 @@ if(isset($_POST['signin-submit'])){
             if($row = mysqli_fetch_assoc($result)){
                 $pwdCheck = password_verify($password, $row['password']);
                 if($pwdCheck == false){
-                    header("Location: ../login.php?error=wrongpwd");
+                    header("Location: ../../login.php?error=wrongpwd");
                     echo "Wrong Password";
                     exit(); 
                 }
@@ -35,17 +35,17 @@ if(isset($_POST['signin-submit'])){
                     $_SESSION['u_id'] = $row['u_id'];
                     $_SESSION['username'] = $row['username'];
 
-                    header("Location: ../index.php?login=success");
+                    header("Location: ../../index.php?login=success");
                     exit(); 
 
                 }
                 else{
-                    header("Location: ../login.php?error=emptyfields");
+                    header("Location: ../../login.php?error=emptyfields");
                     exit(); 
                 }
             }
             else{
-                header("Location: ../login.php?error=nouser");
+                header("Location: ../../login.php?error=nouser");
                 exit(); 
             }
         }
@@ -54,6 +54,6 @@ if(isset($_POST['signin-submit'])){
 
 }
 else{
-    header("Location: ../index.php?");
+    header("Location: ../../index.php?");
     exit();
 }

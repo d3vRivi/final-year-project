@@ -27,7 +27,7 @@ session_start();
             <h3>Sign in and grow in your music world.</h3>
 
             <div class="div1">
-                <form action='includes/login.inc.php' class="div2-login" method="post">
+                <form action='includes/form_handlers/login.inc.php' class="div2-login" method="post">
                     <input type="text" class="inputc" name="mailuid" placeholder="Email or Username" required>
                     <input type="password" class="inputc" name="password" placeholder="Password" required>
 

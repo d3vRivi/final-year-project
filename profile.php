@@ -1,6 +1,8 @@
 <?php
  session_start();
 
+include ("includes/classes/User.php");
+include ("includes/classes/Post.php");
 include ("header.php");
 
 if (isset($_GET['profile_username'])) {
@@ -64,7 +66,11 @@ if(isset($_POST['respond_request'])) {
 
                 <div class="profile-detail">
                     <a href="<?php echo $username; ?>"> <img src=" <?php echo $user_array['profile_pic']; ?>"> </a>
-                        <div class = profile-button>
+
+                      <!-- Button trigger modal -->
+                            <button type="submit" class="profile-post-button" data-toggle="modal" data-target="#post_form"><i class="fas fa-pen-alt" style="font-size:14px;"></i>&nbsp&nbspCreate Post</button>
+                        
+                            <div class = profile-button>
                             <form action="<?php echo $username ?>" method="POST">
                                 <?php
                                     $profile_user_obj = new User($conn, $username);
@@ -89,6 +95,8 @@ if(isset($_POST['respond_request'])) {
                                         }
                                     }
                                 ?>
+                            </form>
+
                             </div> <!--Follow button -->
 
                     <ul class ="user-info">
@@ -97,33 +105,143 @@ if(isset($_POST['respond_request'])) {
                   
                         <ul class="user-stats"">
                             <li>
-                                Connections:
-                                <span><?php echo $num_connections ?></span>
-                            </li>
-                            <li>
                                 Posts:
                                 <span><?php echo $user_array['num_posts']; ?></span>
                                 
                             </li>
+                            
                             <li>
                                 Tracks:
                                 <span>0</span>
                             </li>
+
+                            <li>
+                                Connections:
+                                <span><?php echo $num_connections ?></span>
+                            </li>
+                            
+                            <li>
+                                <?php  
+                                    if($userLoggedIn != $username) {
+                                        echo 'Mutual Connections: ';
+                                        echo $logged_in_user_obj->getMutualConnections($username);
+                                    }
+                                ?>
+                            </li>
                         </ul>
-        
-
-
                      
+            </div> <!--profile-details--><br>
+                             
+            <div class = "display-posts">
+
+            <div class="posts_area"></div>
+                <center><img id="loading" src="assets/images/icons/loading.gif" height="50px" width="50px"></center>
+
+              <script>
+
+            var userLoggedIn = '<?php echo $userLoggedIn; ?>';
+            var profileUsername = '<?php echo $username; ?>';
+
+            $(document).ready(function(){
+
+                $('#loading').show();
+
+                //Original ajax request for loading first posts
+                $.ajax({
+                    url:"includes/handlers/ajax_load_profile_posts.php",
+                    type: "POST",
+                    data: "page=1&userLoggedIn=" + userLoggedIn + "&profileUsername=" + profileUsername,
+                    cache:false,
+
+                    success: function(data){
+                        $('#loading').hide();
+                        $('.posts_area').html(data);
+                    }
+
+                });
+
+                $(window).scroll(function(){
+                    var height = $('.posts_area').height(); //Div containing posts
+                    var scroll_top = $(this).scrollTop();
+                    var page = $('.posts_area').find('.nextPage').val();
+                    var noMorePosts = $('.posts_area').find('.noMorePosts').val();
+
+                    if ((document.body.scrollHeight == document.body.scrollTop + window.innerHeight) && noMorePosts == 'false'){
+                        $('#loading').show();
+
+                    
+                        var ajaxReq = $.ajax({
+                            url:"includes/handlers/ajax_load_profile_posts.php",
+                            type: "POST",
+                            data: "page=" + page + "&userLoggedIn=" + userLoggedIn + "&profileUsername=" + profileUsername,
+                            cache:false,
+
+                            success: function(response){
+                                $('.posts_area').find('.nextPage').remove(); //Removes current .nextpage
+                                $('.posts_area').find('.noMorePosts').remove(); //Removes current .nextpage
+
+
+                                $('#loading').hide();
+                                $('.posts_area').append(response);
+                            }
+                        });
+
+                    } //End if
+
+                    return  false;
+
+                }); //End window scroll
+
+            });
+
+            </script>     
             
-            </div> <!--profile-details-->
+            </div><!--end display posts -->
+            
 
-            <?php echo $username; ?>
-
-           
+                                
 
         </div> <!--Content-->
 
     </div><!--body-grid -->
+
+
+  
+
+<!-- Modal -->
+<div class="modal fade" id="post_form" tabindex="-1" role="dialog" aria-labelledby="postModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Create Post</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <p> This will appear on user's profile page and newsfeed for your friends to see!</p>
+
+        <form class="profile_post" action="" method="POST">
+            <div>
+                <textarea class="form-control" name="post_body"></textarea>
+                <input type="hidden" name="user_from" value="<?php echo $userLoggedIn; ?>">
+                <input type="hidden" name="user_to" value="<?php echo $username; ?>">
+            </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary"  name="post_button" id="submit_profile_post">Post</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 </body>
 
 </html>

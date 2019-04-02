@@ -17,6 +17,7 @@ session_start();
                 <div class="main-body">
                         <div class="body-grid">
                             <div class ="content">
+                                <div class ="column">
                                 <center> <h2>UPLOAD MUSIC</h2> </center> 
                                 <center> <h3>Upload your music to Maestro</h3> </center> 
                                 <center><div class="upload-btn-wrapper">
@@ -26,4 +27,6 @@ session_start();
                                 </div></center>
                             </form>
                             </div>
+                        </div>
+                    </div>
                                     

@@ -1,8 +1,9 @@
 <?php
 
+
 require 'includes/dbh.inc.php';
-include ("includes/classes/User.php");
-include ("includes/classes/Post.php");
+
+
 
 if (isset($_SESSION['username'])) {
     $userLoggedIn = $_SESSION['username'];
@@ -11,6 +12,9 @@ if (isset($_SESSION['username'])) {
 } else {
     header("Location: ../login.php");
 }
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -21,16 +25,27 @@ if (isset($_SESSION['username'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--CSS -->
     <link rel="stylesheet" type="text/css" media="screen" href="style.css?v=<?php echo time(); ?>" />
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	<link rel="stylesheet" href="assets/css/jquery.Jcrop.css" type="text/css" />
+
+
+    <!--Javascript -->
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="assets/js/bootstrap.js"></script>
+    <script src="assets/js/bootbox.min.js"></script>
+    <script src="assets/js/maestro.js"></script>
+    <script src="assets/js/jquery.jcrop.js"></script>
+	<script src="assets/js/jcrop_bits.js"></script>
+
 
 </head>
 
@@ -50,17 +65,24 @@ if (isset($_SESSION['username'])) {
                     </div>
                     <ul class="main-nav">
                         <center>
+                            <a href="requests.php ">
+                                <li><i class="fas fa-users" style="font-size:22px; margin-top:-10px;"></i></li>
+                            </a>
+
                             <a>
                                 <li><i class="fas fa-envelope" style="font-size:22px; margin-top:-10px;"></i></li>
                             </a>
+
                             <a>
                                 <li><i class="fas fa-bell" style="font-size:22px; margin-top:-10px;"></i></li>
                             </a>
+
                             <a href="addmusic.php">
                                 <li><button class="uploadbttn"><strong>Upload</strong></button></li>
                             </a>
+
                             <a href="<?php echo $userLoggedIn; ?>"> 
-                                <li style="background: white; border-radius: 30px; width:40px; margin-top:-5px; display:grid;"><img src=" <?php echo $user['profile_pic']; ?>" height="40" width="40"></li>
+                                <li style="background: white; border-radius: 30px; width:40px; height:40px; margin-top:-10px; padding:5px 0px 0px 0px; display:grid;"><img src=" <?php echo $user['profile_pic']; ?>" style="border-radius: 30px; width:40px; margin-top:-5px; display:grid;"></li>
                             </a>
                             <!-- <a href="profile.php">
                                 <li> <?php echo $user['f_name']; ?> </li>
@@ -76,3 +98,4 @@ if (isset($_SESSION['username'])) {
         </div>
     </header>
 </body>
+</html>

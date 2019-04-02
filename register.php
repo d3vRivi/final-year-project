@@ -24,7 +24,7 @@ session_start();
     <div class="form-container-reg">
 
         <div class="div2-reg">
-            <form action="includes/register.inc.php" method="post" oninput="validatePassword()">
+            <form action="includes/form_handlers/register.inc.php" method="post" oninput="validatePassword()">
                 <input type="text" class="inputcr" name="f_name" placeholder="First Name" required><br>
                 <input type="text" class="inputcr" name="l_name" placeholder="Last Name" required><br>
                 <input type="text" class="inputcr" name="email" placeholder="Email" required><br><br>

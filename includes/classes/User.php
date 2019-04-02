@@ -1,4 +1,5 @@
 <?php
+
 class User{
     private $user;
     private $conn;
@@ -105,6 +106,29 @@ class User{
             $user_from = $this->user['username'];
             $query = mysqli_query($this->conn, "INSERT INTO connection_requests VALUES ('','$user_to', '$user_from')");
             
+        }
+
+        public function getMutualConnections($user_to_check) {
+            $mutualConnections = 0;
+            $user_array = $this->user['connections_array'];
+            $user_array_explode = explode(",", $user_array);
+    
+            $query = mysqli_query($this->conn, "SELECT connections_array FROM users WHERE username='$user_to_check'");
+            $row = mysqli_fetch_array($query);
+            $user_to_check_array = $row['connections_array'];
+            $user_to_check_array_explode = explode(",", $user_to_check_array);
+    
+            foreach($user_array_explode as $i) {
+    
+                foreach($user_to_check_array_explode as $j) {
+    
+                    if($i == $j && $i != "") {
+                        $mutualConnections++;
+                    }
+                }
+            }
+            return $mutualConnections;
+    
         }
 
 
