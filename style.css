@@ -757,7 +757,7 @@ a {
     border: none;
     color: white;
     border-radius: 50px;
-    bottom: 70px;
+    bottom: 35px;
     cursor: pointer;
 }
 .message{
@@ -786,9 +786,12 @@ a {
     overflow-x: hidden; 
 }
 .loaded_conversations{
-    max-height: 200px;
+    max-height: 400px;
     overflow: scroll;
     overflow-x: hidden;
+    position: absolute;
+    top:90px;
+    left: 0;
 }
 .user_found_messages{
     padding: 8px 8px 10px 8px;
@@ -804,7 +807,29 @@ a {
 #grey{
     color: #acacac;
 }
+.resultDisplay{
+    padding: 10px 5px 0px 10px;
+    height: 72px;
 
+}
+.resultDisplay:hover{
+    text-decoration: none;
+    background-color: #EBEBEB;
+}
+.liveSearchProfilePic img{
+    height: 50px;
+    border-radius: 25px;
+    margin: 1px 12px 0px 2px;
+    float: left;
+}
+.liveSearchText{
+    background-color: transparent;
+    color: #800020;
+}
+.liveSearchText p{
+    margin-left: 10px;
+    font-size: 12px;
+}
 
 
 

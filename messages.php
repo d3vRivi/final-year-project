@@ -1,10 +1,10 @@
 <?php
+
 session_start();
 
 include ("includes/classes/User.php");
 include ("includes/classes/Post.php");
 include ("includes/classes/Message.php");
-
 include ("header.php");
 
 
@@ -42,7 +42,7 @@ if(isset($_POST['post_message'])) {
     <div class="body-grid">
 
         <div class="content">
-            <div class="column" style="margin-top:0px;margin-left:200px; width:800px; height:680px; position:absolute;">
+            <div class="column" style="margin-top:0px;margin-left:30px; width:800px; position:absolute;">
             <div class="main_column" id="main_column" >
                     <?php  
                     if($user_to != "new"){
@@ -61,7 +61,7 @@ if(isset($_POST['post_message'])) {
 			<form action="" method="POST">
 				<?php
 				if($user_to == "new") {
-					echo "Select the friend you would like to message <br><br>";
+					echo "Select the connection you would like to message <br><br>";
 					?> 
 					To: <input type='text' onkeyup='getUsers(this.value, "<?php echo $userLoggedIn; ?>")' name='q' placeholder='Name' autocomplete='off' id='seach_text_input'>
 
@@ -87,14 +87,13 @@ if(isset($_POST['post_message'])) {
             </div>
     
 	<!-- <div class="column"> -->
-	<div class="user_details column" id="conversations" style="margin-left:-250px; width:400px; position:absolute; margin-top:0px;">
+	<div class="user_details column" id="conversations" style="margin-left:-300px; width:320px; position:absolute; margin-top:0px;height:500px;display:block;">
 			<h4>Conversations</h4>
-
+			<a href="messages.php?u=new">New Message</a>
+			<br>
 			<div class="loaded_conversations">
 				<?php echo $message_obj->getConvos(); ?>
 			</div>
-			<br>
-			<a href="messages.php?u=new">New Message</a>
 
         </div>
             <!--column -->
