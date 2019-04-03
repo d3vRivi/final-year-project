@@ -1,5 +1,5 @@
 <?php
-	session_start();
+    session_start();
 ?>
 
 <!DOCTYPE html>
@@ -28,13 +28,13 @@
         
     </style>
 
-
-
-
     <?php
+
     require 'includes/dbh.inc.php';
     include ("includes/classes/User.php");
     include ("includes/classes/Post.php");
+    include ("includes/classes/Notification.php");
+
 
     if (isset($_SESSION['username'])) {
         $userLoggedIn = $_SESSION['username'];
@@ -70,6 +70,12 @@
                 $insert_user = mysqli_query($conn, "INSERT INTO likes VALUES('', '$userLoggedIn', '$post_id')");
             }
 
+            //Insert Notification
+            if($user_liked != $userLoggedIn) {
+				$notification = new Notification($conn, $added_by);
+				$notification->insertNotification($post_id, $user_liked, "like");
+			}
+
 
             //Unlike button
             if(isset($_POST['unlike_button'])) {
@@ -80,9 +86,6 @@
                 $insert_user = mysqli_query($conn, "DELETE FROM likes WHERE username='$userLoggedIn' AND post_id='$post_id'");
             }
         
-
-
-
 
                 //Check for previous likes
                 $check_query = mysqli_query($conn, "SELECT * FROM likes WHERE username='$userLoggedIn' AND post_id='$post_id'");

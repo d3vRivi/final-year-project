@@ -1,8 +1,6 @@
 <?php
 session_start();
 
-include ("includes/classes/User.php");
-include ("includes/classes/Post.php");
 include ("header.php");
 ?>
 

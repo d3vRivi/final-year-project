@@ -2,12 +2,7 @@
 
 session_start();
 
-include ("includes/classes/User.php");
-include ("includes/classes/Post.php");
-include ("includes/classes/Message.php");
 include ("header.php");
-
-
 
 
 $message_obj = new Message($conn, $userLoggedIn);
@@ -37,12 +32,14 @@ if(isset($_POST['post_message'])) {
 ?>
 <html>
 <body>
-    <?php require 'header.php'; ?>
 <div class="main-body">
     <div class="body-grid">
+	<?php require 'sidebar.php'; ?>
 
         <div class="content">
-            <div class="column" style="margin-top:0px;margin-left:30px; width:800px; position:absolute;">
+		
+
+            <div class="column" style="margin-top:0px;margin-left:330px; width:800px; position:absolute;">
             <div class="main_column" id="main_column" >
                     <?php  
                     if($user_to != "new"){
@@ -87,7 +84,7 @@ if(isset($_POST['post_message'])) {
             </div>
     
 	<!-- <div class="column"> -->
-	<div class="user_details column" id="conversations" style="margin-left:-300px; width:320px; position:absolute; margin-top:0px;height:500px;display:block;">
+	<div class="user_details column" id="conversations" style="margin-left:0px; width:320px; position:absolute; margin-top:0px;height:500px;display:block;">
 			<h4>Conversations</h4>
 			<a href="messages.php?u=new">New Message</a>
 			<br>

@@ -1,9 +1,10 @@
 <?php
  session_start();
 
-include ("includes/classes/User.php");
-include ("includes/classes/Post.php");
 include ("header.php");
+
+$message_obj = new Message($conn, $userLoggedIn);
+
 
 if (isset($_GET['profile_username'])) {
     $username = $_GET['profile_username'];
@@ -27,6 +28,23 @@ if(isset($_POST['respond_request'])) {
    header("Location: requests.php");
 }
 
+if(isset($_POST['post_message'])) {
+    if(isset($_POST['message_body'])) {
+      $body = mysqli_real_escape_string($conn, $_POST['message_body']);
+      $date = date("Y-m-d H:i:s");
+      $message_obj->sendMessage($username, $body, $date);
+    }
+  
+    $link = '#profileTabs a[href="#messages_div"]';
+    echo "<script> 
+            $(function() {
+                $('" . $link ."').tab('show');
+            });
+          </script>";
+  
+  
+  }
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -36,27 +54,9 @@ if(isset($_POST['respond_request'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Profile</title>
     <link rel="stylesheet" type="text/css" media="screen" href="style.css?v=<?php echo time(); ?>" />
-
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
-    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
-        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
-    </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
-    </script>
-    <script src="main.js"></script> -->
 </head>
 
 <body>
-    <?php require 'header.php'; ?>
     
     <div class="main-body">
         <div class="body-grid">
@@ -134,8 +134,77 @@ if(isset($_POST['respond_request'])) {
                              
             <div class = "display-posts">
 
-            <div class="posts_area"></div>
-                <center><img id="loading" src="assets/images/icons/loading.gif" height="50px" width="50px"></center>
+            <ul class="nav nav-tabs" role="tablist" id="profileTabs">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#newsfeed_div" aria-controls="newsfeed_div" role="tab" data-toggle="tab">My Posts</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#tracks_div" aria-controls="tracks_div" role="tab" data-toggle="tab">My Tracks</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#messages_div" aria-controls="messages_div" role="tab" data-toggle="tab">Messages</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about_div" aria-controls="about_div" role="tab" data-toggle="tab">About</a>
+                </li>
+            </ul>
+
+            <div class="tab-content">
+
+                <div role="tabpanel" class="tab-pane active" id="newsfeed_div">
+             
+                    <div class="posts_area"></div>
+                    <center><img id="loading" src="assets/images/icons/loading.gif" height="50px" width="50px"></center>
+
+                </div>  
+
+                <div role="tabpanel" class="tab-pane" id="tracks_div">
+             
+                    <div class="posts_area"></div>
+                    <center><img id="loading" src="assets/images/icons/loading.gif" height="50px" width="50px"></center>
+                    
+                </div> 
+
+                <div role="tabpanel" class="tab-pane" id="messages_div">
+             
+                    <?php  
+
+                        echo "<h4>You and <a href='" . $username ."'>" . $profile_user_obj->getFirstAndLastName() . "</a></h4><hr><br>";
+
+                        echo "<div class='loaded_messages' id='scroll_messages'>";
+                            echo $message_obj->getMessages($username);
+                        echo "</div>";
+                
+                    ?>
+
+                        <div class="message_post">
+                                    <form action="" method="POST">
+                                            <textarea name='message_body' id='message_textarea' placeholder='Write your message ...'></textarea>
+                                            <button type='submit' name='post_message' class='info' id='message_submit'><i class='fas fa-paper-plane'></i></button>
+    
+                                    </form>
+
+                                </div>
+
+                                <script>
+                                    var div = document.getElementById("scroll_messages");
+                                    div.scrollTop = div.scrollHeight;
+                                </script>
+                    
+                </div> 
+
+                <div role="tabpanel" class="tab-pane" id="about_div">
+             
+                    <div class="posts_area"></div>
+                    <center><img id="loading" src="assets/images/icons/loading.gif" height="50px" width="50px"></center>
+                    
+                </div> 
+                        
+                
+
+            </div>
+
+        
 
               <script>
 

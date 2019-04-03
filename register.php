@@ -12,7 +12,6 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-    <script src="main.js"></script>
 </head>
 
 <body class = "login-body">

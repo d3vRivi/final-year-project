@@ -21,6 +21,12 @@ class User{
             return $this->user['num_posts'];
         }
 
+        public function getNumberOfConnectionRequests() {
+            $username = $this->user['username'];
+            $query = mysqli_query($this->conn, "SELECT * FROM connection_requests WHERE user_to='$username'");
+            return mysqli_num_rows($query);
+        }
+
         public function getFirstAndLastName(){
             $username = $this->user['username'];
             $query = mysqli_query($this->conn, "SELECT f_name, l_name FROM users WHERE username='$username'");

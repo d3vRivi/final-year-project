@@ -44,13 +44,15 @@ a {
 
 }
 .inner-header{
-    width: 920px;
+    width: 100%;
     height: 100%;
-    display: block;
+    display: grid;
     margin: 0 auto;
     text-decoration: none;
     list-style: none;
-    padding: 17px;    
+    padding: 17px;   
+    /* background: blue;  */
+    justify-content: center;
 
 }
 .logo-container{
@@ -61,28 +63,29 @@ a {
     padding: 0px;
     margin-bottom: 1px;
     margin-top:-12px;
-    margin-left: -30px;
+    margin-left: 100px;
 
 
 }
 .search-container{
-    width: 420px;
+    width: 545px;
     float: left;
     display: block;
     position: relative;
     margin-top:-15px;
-    margin-left:40px;
+    margin-left:30px;
     /* height: 20px; */ 
     outline: 0;
+    /* background: red; */
     
     
 }
 .search-container input[type=text]{
     margin-top: 2px;
     height: 100%;
-    width: 400px;
+    width: 550px;
     padding: 10px;
-    margin-left: 12px;
+    margin-left: 0px;
     /* background: rgb(97, 97, 97); */
     border: 1px;  
     /* color: white; */
@@ -93,14 +96,15 @@ a {
 
 .main-nav{
     float: left;
-    height: 100%;
-    padding-left: 20px;
+    height: 30px;
+    padding-left: 15px;
+    /* background: red; */
 }
 .main-nav a{
     height: 100%;
     display: table;
     float: left;
-    padding: 0px 10px;
+    padding: 0px 10px 0px 10px;
     text-decoration: none;
    
 }
@@ -112,6 +116,7 @@ a {
     font-family: 'Lato', sans-serif;
     font-size: 16px;
     text-decoration: none;
+
 }
 .main-nav a li:hover{
     color: rgb(179, 165, 179);  
@@ -204,18 +209,19 @@ a {
 
 .uploadbttn{
     display: block;
-    background: purple;
+    background: #800020;
     border: none;
     /* z-index: 1000; */
     color: white;
     font-size: 16px;
     padding: 10px;
-    width: 90px;
+    width: 75px;
     font-family: 'Lato', sans-serif;
-    margin-top: -12px;
-    border-radius: 22px;
+    margin: -13px 10px;
+    border-radius: 25px;
     text-decoration: none;
     outline: 0;
+    position: static;
 }
 
 .postbttn .active{
@@ -798,7 +804,7 @@ a {
 }
 .user_found_messages:hover{
     background: #D3D3D3;
-    border-radius: 20px;
+    border-radius: 10px;
 }
 .user_found_messages img{
     height:50px;
@@ -830,6 +836,56 @@ a {
     margin-left: 10px;
     font-size: 12px;
 }
+.tab-content{
+    margin-top: 25px;
+}
+.dropdown_data_window{
+    height: 320px;
+    padding: 0px;
+    background: white;
+    border: 1px solid #DADADA;
+    border-radius: 0 0 8px 8px;
+    border-top: none;
+    width:320px;
+    position: absolute;
+    right: 510px;
+    top: 55px;
+    overflow: scroll;
+    overflow-x:hidden;
+    box-shadow: 0 0 4px 0 rgba(41,39,44,.25);
+}
+.notification_badge{
+    padding: 3px 5px;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1;
+    color: white;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    background: #800020;
+    border-radius: 30px;
+    position: absolute;
+    top:10px;
+    margin: 0px 0px 0px -10px;
+}
+.resultDisplayNotification{
+    height: auto;
+    color: #800020;
+    padding-bottom: 7px;
+}
+.resultDisplayNotification img{
+    height: 50px;
+    border-radius: 30px;
+    margin: 10px 12px 0px 2px;
+    float: left;
+}
+.timestamp_smaller{
+    font-size: 85%;
+    margin: 0;
+
+}
+
 
 
 
