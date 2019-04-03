@@ -33,9 +33,8 @@
     require 'includes/dbh.inc.php';
     include ("includes/classes/User.php");
     include ("includes/classes/Post.php");
-    include ("includes/classes/Notification.php");
-
-
+	include ("includes/classes/Notification.php");
+    
     if (isset($_SESSION['username'])) {
         $userLoggedIn = $_SESSION['username'];
         $user_details_query = mysqli_query($conn, "SELECT * FROM users WHERE username = '$userLoggedIn' ");
@@ -43,9 +42,7 @@
     } else {
         header("Location: ../login.php");
     }
-    ?>
-
-        <?php
+   
             
             //Get id of post
             if(isset($_GET['post_id'])) {
@@ -68,14 +65,14 @@
                 $total_user_likes++;
                 $user_likes = mysqli_query($conn, "UPDATE users SET num_likes='$total_user_likes' WHERE username='$user_liked'");
                 $insert_user = mysqli_query($conn, "INSERT INTO likes VALUES('', '$userLoggedIn', '$post_id')");
-            }
+            
 
             //Insert Notification
             if($user_liked != $userLoggedIn) {
-				$notification = new Notification($conn, $added_by);
+				$notification = new Notification($conn, $userLoggedIn);
 				$notification->insertNotification($post_id, $user_liked, "like");
-			}
-
+                }
+            }   
 
             //Unlike button
             if(isset($_POST['unlike_button'])) {
@@ -86,7 +83,6 @@
                 $insert_user = mysqli_query($conn, "DELETE FROM likes WHERE username='$userLoggedIn' AND post_id='$post_id'");
             }
         
-
                 //Check for previous likes
                 $check_query = mysqli_query($conn, "SELECT * FROM likes WHERE username='$userLoggedIn' AND post_id='$post_id'");
                 $num_rows = mysqli_num_rows($check_query);
@@ -109,9 +105,6 @@
                         </form>
                     ';
                 }
-
-
-
             
         ?>
 

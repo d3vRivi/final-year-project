@@ -34,7 +34,7 @@
                      <section class="profile-img"> 
                          <a href="<?php echo $userLoggedIn; ?>"> <img src=" <?php echo $user['profile_pic']; ?>" height="35" width="35"> </a> 
                     </section>
-                     <textarea name="post-text" id="post-text"
+                     <textarea name="post_text" id="post_text"
                          placeholder="What's on your mind today, <?php echo $user['f_name']; ?>?"></textarea><br>
                      <input type="submit" name="post" id="post-button" value="Post">
                  </form>

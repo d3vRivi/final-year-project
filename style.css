@@ -67,20 +67,18 @@ a {
 
 
 }
-.search-container{
+.search{
     width: 545px;
     float: left;
     display: block;
     position: relative;
     margin-top:-15px;
-    margin-left:30px;
+    margin-left:20px;
     /* height: 20px; */ 
     outline: 0;
-    /* background: red; */
-    
-    
+    /* background: red; */ 
 }
-.search-container input[type=text]{
+.search input[type=text]{
     margin-top: 2px;
     height: 100%;
     width: 550px;
@@ -92,6 +90,16 @@ a {
     border-radius: 20px;
     background: #f7f7ff;
     outline: 0;
+}
+.button_holder img{
+    height: 30px;
+}
+.button_holder{
+    position: absolute;
+    margin: -35px 0 0 500px;
+    float: left;
+    cursor: pointer;
+   
 }
 
 .main-nav{
@@ -207,7 +215,7 @@ a {
     /* box-shadow: 0 0 6px 0 white; */
 }
 
-.uploadbttn{
+.upload-bttn{
     display: block;
     background: #800020;
     border: none;
@@ -217,7 +225,7 @@ a {
     padding: 10px;
     width: 75px;
     font-family: 'Lato', sans-serif;
-    margin: -13px 10px;
+    margin: -13px 0px;
     border-radius: 25px;
     text-decoration: none;
     outline: 0;
@@ -719,7 +727,7 @@ a {
     padding: 5px 10px 5px 10px;
     border-radius: 30px;
     height: 2%;
-    width: 8%;
+    width: 15%;
     background-color: #800020;
 
 }
@@ -731,7 +739,7 @@ a {
     padding: 5px 10px 5px 10px;
     border-radius: 30px;
     height: 2%;
-    width: 8%;
+    width: 15%;
     background-color:black;
 }
 .delete_button{

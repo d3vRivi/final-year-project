@@ -2,13 +2,16 @@
 session_start();
 
 include ("header.php");
+
 ?>
 
 <div class="main-body">
         <div class="body-grid">
+       <?php include ("sidebar.php"); ?>
             <div class="content">
+                <div class="column" style="margin-top:0;">
 
-<center><h4>Connection Requests</h4>
+            <center><h4>Connection Requests</h4>
 
 <?php
 
@@ -21,8 +24,11 @@ else{
     while($row = mysqli_fetch_array($query)){
         $user_from = $row['user_from'];
         $user_from_obj = new User($conn, $user_from);
+         echo " <div class='post_profile_pic' style='margin-left:280px; position:absolute; '>
+                <img src='" . $user_from_obj->getProfilePic() . "' width='50' >
+                </div>";
 
-        echo $user_from_obj->getFirstAndLastName() . " wants to connect with you!";
+         echo $user_from_obj->getFirstAndLastName() . " wants to connect with you!";
 
         $user_from_connection_array = $user_from_obj->getConnectionArray();
 
@@ -57,6 +63,7 @@ else{
 
 ?>
 </center>
+</div>
 </div>
 </div>
 </div>

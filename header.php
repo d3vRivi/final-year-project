@@ -63,9 +63,25 @@ if (isset($_SESSION['username'])) {
                     </a>
                 </div>
                 <div class="navigation">
-                    <div class="search-container">
-                        <input type="text" class=search placeholder="Search">
+                    <div class="search">
+
+                        <form action="search.php" method="GET" name="search_form">
+                            <input type="text" onkeyup="getLiveSearchUsers(this.value, '<?php echo $userLoggedIn; ?>')" name="q" placeholder="Search..." autocomplete="off" id="search_text_input">
+
+                            <div class="button_holder">
+                                <img src="assets/images/icons/search.png">
+                            </div>
+
+                        </form>
+
+                        <div class="search_results">
+                        </div>
+
+                        <div class="search_results_footer_empty">
+                        </div>
+
                     </div>
+
 
                     <ul class="main-nav">
                                     <?php
@@ -108,11 +124,11 @@ if (isset($_SESSION['username'])) {
                             </a>
 
                             <a href="<?php echo $userLoggedIn; ?>"> 
-                                <li style="background: white; border-radius: 30px; width:40px; height:40px; margin-top:-10px; padding:5px 0px 0px 0px; display:grid;"><img src=" <?php echo $user['profile_pic']; ?>" style="border-radius: 30px; width:40px; margin:-5px; display:grid;"></li>
+                                <li style="background: white; border-radius: 30px; width:40px; height:40px; margin-top:-10px; margin-left:10px; padding:5px 0px 0px 0px; display:grid;"><img src=" <?php echo $user['profile_pic']; ?>" style="border-radius: 30px; width:40px; margin:-5px; display:grid;"></li>
                             </a>
                            
                             <a href="addmusic.php">
-                                <li><button class="uploadbttn"><strong>Upload</strong></button></li>
+                                <li><button class="upload-bttn"><strong>Upload</strong></button></li>
                             </a>
                             <a href="includes/handlers/logout.php">
                                 <li><i class="fas fa-sign-out-alt" style="font-size:17px; margin-top:0px;"></i> Logout</li>
