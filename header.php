@@ -29,6 +29,17 @@ if (isset($_SESSION['username'])) {
     <title></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    
+    <!--Javascript -->
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.js"></script>
+    <script src="assets/js/bootbox.min.js"></script>
+    <script src="assets/js/maestro.js"></script>
+    <script src="assets/js/jquery.jcrop.js"></script>
+	<script src="assets/js/jcrop_bits.js"></script>
+
     <!--CSS -->
     <link rel="stylesheet" type="text/css" media="screen" href="style.css?v=<?php echo time(); ?>" />
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
@@ -39,15 +50,6 @@ if (isset($_SESSION['username'])) {
 	<link rel="stylesheet" href="assets/css/jquery.Jcrop.css" type="text/css" />
 
 
-    <!--Javascript -->
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="assets/js/bootstrap.js"></script>
-    <script src="assets/js/bootbox.min.js"></script>
-    <script src="assets/js/maestro.js"></script>
-    <script src="assets/js/jquery.jcrop.js"></script>
-	<script src="assets/js/jcrop_bits.js"></script>
 
 
 </head>
