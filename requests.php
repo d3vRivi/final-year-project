@@ -24,7 +24,7 @@ else{
     while($row = mysqli_fetch_array($query)){
         $user_from = $row['user_from'];
         $user_from_obj = new User($conn, $user_from);
-         echo " <div class='post_profile_pic' style='margin-left:280px; position:absolute; '>
+         echo " <div class='post_profile_pic' style='margin-left:255px; position:absolute; '>
                 <img src='" . $user_from_obj->getProfilePic() . "' width='50' >
                 </div>";
 

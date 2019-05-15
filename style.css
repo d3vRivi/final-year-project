@@ -489,7 +489,7 @@ a {
     padding: 0px;
 }
 .post-card input[type="submit"] {
-    margin-left: 10px;
+    margin-right: 10px;
     width: 12%;
     height: 40px;
     border-radius: 20px;
@@ -498,6 +498,7 @@ a {
     border: none;
     font-family: 'Lato', sans-serif;
     outline: 0;
+    float: right;
 }
 .post-card input[type="submit"]:active {
     padding: 5px 4px 4px 5px;
@@ -531,7 +532,7 @@ a {
     font-size: 15px;
     background: white;
     border-radius: 5px;
-    box-shadow: 0 0 1px 0 rgba(41,39,44,.25);
+    box-shadow: 0 0 4px 0 rgba(41,39,44,.25);
     cursor: pointer;
 }
 .post_profile_pic{
@@ -602,16 +603,27 @@ a {
     text-decoration: none;
     color: rgba(0, 0, 0, 0.420);
     font-family: 'Lato', sans-serif;
-    font-size: 15px;
     font-weight: bold;
-    height: auto;
-    padding:0px;
-    
+    height: 25px;
+    vertical-align: middle;
+    text-align: center;
+}
+#cmnt{
+    border: 0px;
+    height: 22px;
+    width: 120px;
+    vertical-align: middle;
+    background: blue;
 }
 .newsfeedPostOptions iframe{
     border: 0px;
-    height: 20px;
+    height: 22px;
     width: 120px;
+    vertical-align: middle;
+    margin: -20px -120px;
+    float: left;
+    position: absolute;
+    
 }
 .comment_text{
     text-decoration: none;
@@ -622,6 +634,7 @@ a {
     height: auto;
     padding:0px;
     display:inline-block;
+    margin: 0px;
 }
 .like_text{
     color: rgba(0, 0, 0, 0.420);
@@ -629,10 +642,9 @@ a {
     padding: 0px;
     height: auto;
     width: auto;
-    font-size: 15px;
     font-weight: bold;
     display:inline-block;
- 
+    margin-top: 0px;
 }
 .comment_like{
     background-color: transparent;
@@ -654,19 +666,20 @@ a {
 
 }
 .danger{
-    background-color: #800020;
+    background-color: black;
 }
 .warning{
-    background-color:purple;
+    background-color:#800020;
 }
 .default{
-    background-color: purple;
+    background-color: #800020;
+
 }
 .success{
-    background-color: purple;
+    background-color: #800020;
 }
 .info{
-    background-color: purple;
+    background-color: #800020;
 }
 .column{
     background: white;
@@ -715,6 +728,22 @@ a {
     padding: 5px 10px 5px 10px;
     border-radius: 30px;
     padding: 10px 16px 10px 16px;
+}
+#editProfileButton{
+    position: absolute;
+    border: none;
+    background: #800020;
+    color: white;
+    font-family: 'Lato', sans-serif;
+    border-radius: 5px;
+    margin-top: 5px;
+    font-size: 12px;
+    width: 100px;
+    padding: 10px;
+}
+#editProfileButton a{
+    color: white;
+    text-decoration: none;
 }
 
 #accept_button{
@@ -780,7 +809,7 @@ a {
     color:white;
 }
 .message#blue{
-    background:purple;
+    background: #800020;
     float: right;
     margin-bottom: 5px;
 }
@@ -899,7 +928,9 @@ a {
     margin-top: -2px;
     /* padding-top: 40px;     */
     box-shadow: 0 0 1px 0 rgba(41,39,44,.25);
-
+}
+.search_result a{
+    color: #800020;
 }
 .search_results_footer{
     height: 40px;
@@ -916,8 +947,48 @@ a {
     color: white;
 }
 
-
-
+.search_result{
+    padding: 5px;
+    height: 100px;
+}
+.searchPageFriendButtons{
+    float: right;
+    margin-top: 20px;
+}
+.searchPageFriendButtons input[type="submit"]{
+    border: none;
+    border-radius: 30px;
+    color: white;
+    padding: 10px 10px 10px 10px;
+}
+.result_profile_pic{
+    float: left;
+    margin-right: 10px;
+}
+#search_hr{
+    margin-bottom: 0px;
+}
+.small_profile_pic{
+    height: 120px;
+    margin: 1px 12px 0 2px;
+  
+}
+#settings_input{
+    border: 1px solid #CCC;
+    height: 30px;
+    padding: 4px 6px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    font-size: 14px;
+    line-height: 20px;
+    margin-left: 10px;
+}
+.settings_submit{
+    border: none;
+    padding: 7px 12px;
+    border-radius: 5px;
+    color: white;
+}
 
 
 

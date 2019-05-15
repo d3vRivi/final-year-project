@@ -11,9 +11,27 @@ class Post{
     public function submitPost($body, $user_to){
        $body = strip_tags($body); //removes html tags
        $body = mysqli_real_escape_string($this->conn, $body);
+       $body = str_replace('\r\n', "\n", $body);
+	   $body = nl2br($body);
        $check_empty = preg_replace('/\s/', '', $body); //Deletes all spaces
 
        if($check_empty !=""){
+
+            $body_array = preg_split("/\s+/", $body);
+
+            foreach($body_array as $key => $value) {
+
+                if(strpos($value, "www.youtube.com/watch?v=") !== false) {
+
+                    $link = preg_split("!&!", $value);
+                    $value = preg_replace("!watch\?v=!", "embed/", $link[0]);
+                    $value = "<br><center><iframe width=\'500\' height=\'315\' src=\'" . $value ."\'></iframe></center><br>";
+                    $body_array[$key] = $value;
+
+                }
+
+            }
+            $body = implode(" ", $body_array);
 
             //Current date and time
             $date_added = date("Y-m-d H:i:s");
@@ -216,7 +234,7 @@ class Post{
 
                                     <section class='like_text'><iframe src='like.php?post_id=$id' scrolling='no'></iframe></section>
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <section class='comment_text'>Comments&nbsp;($comments_check_num)</section>
+                                    <section class='comment_text'><i class='far fa-comment' style='color:black;'></i>&nbsp;Comments&nbsp;($comments_check_num)</section>
                                 
                          
                             </div>
@@ -418,8 +436,8 @@ class Post{
                             <div class='newsfeedPostOptions'>
 
                                     <section class='like_text'><iframe src='like.php?post_id=$id' scrolling='no'></iframe></section>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <section class='comment_text'>Comments&nbsp;($comments_check_num)</section>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <section class='comment_text'><i class='far fa-comment' style='color:black;'></i>&nbspComments&nbsp;($comments_check_num)</section>
                                 
                          
                             </div>
@@ -620,19 +638,18 @@ class Post{
 									$body
 									<br>
 									<br>
-									<br>
+									<hr>
 								</div>
-
                                 <div class='newsfeedPostOptions'>
-                                    <iframe src='like.php?post_id=$id' scrolling='no'></iframe>
-									Comments($comments_check_num)&nbsp;&nbsp;&nbsp;
+                                    <section class='like_text'><iframe src='like.php?post_id=$id' scrolling='no'></iframe></section>
+                                    <section class='comment_text'><i class='far fa-comment' style='color:black;'></i>&nbspComments($comments_check_num)</section>&nbsp;&nbsp;&nbsp;
 								</div>
 
 							</div>
 							<div class='post_comment' id='toggleComment$id' style='display:none;'>
 								<iframe src='comment_frame.php?post_id=$id' id='comment_iframe' frameborder='0'></iframe>
 							</div>
-							<hr>";
+							";
 
 
 				?>

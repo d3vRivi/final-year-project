@@ -94,6 +94,11 @@ if(isset($_POST['post_message'])) {
                                             echo '<input type="submit" name="add_connection" class="success" value="Connect" ><br>';
                                         }
                                     }
+
+                                    if($userLoggedIn == $username){
+                                        echo '<button id="editProfileButton"><a href="settings.php"><i class="fas fa-edit"></i> Edit Profile</a></button>';
+                
+                                    }
                                 ?>
                             </form>
 
@@ -136,18 +141,20 @@ if(isset($_POST['post_message'])) {
 
             <ul class="nav nav-tabs" role="tablist" id="profileTabs">
                 <li class="nav-item">
-                    <a class="nav-link active" href="#newsfeed_div" aria-controls="newsfeed_div" role="tab" data-toggle="tab">My Posts</a>
+                    <a class="nav-link active" href="#newsfeed_div" aria-controls="newsfeed_div" role="tab" data-toggle="tab">Posts</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#tracks_div" aria-controls="tracks_div" role="tab" data-toggle="tab">My Tracks</a>
+                    <a class="nav-link" href="#tracks_div" aria-controls="tracks_div" role="tab" data-toggle="tab">Tracks</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#messages_div" aria-controls="messages_div" role="tab" data-toggle="tab">Messages</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#about_div" aria-controls="about_div" role="tab" data-toggle="tab">About</a>
+                    <a class="nav-link" href="#about_div" aria-controls="about_div" role="tab" data-toggle="tab">Portfolio</a>
                 </li>
             </ul>
+
+            
 
             <div class="tab-content">
 

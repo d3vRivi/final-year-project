@@ -18,24 +18,18 @@
                         <div class="body-grid">
                               <?php require 'sidebar.php'?> 
                                 <div class="content">
-                                Edit in JSFiddle
-Result
-HTML
-CSS
-JavaScript
-Resources
 <!-- Page Content -->
 <div class="container">
 
   <!-- Page Heading -->
-  <h1 class="my-4">Page Heading
-    <small>Secondary Text</small>
+  <h1 class="my-4">
+    <small>New opportunities for you to apply now!</small>
   </h1>
 
   <div class="row">
     <div class="col-lg-6 mb-4">
       <div class="card h-100">
-        <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+        <a href="#"><img class="card-img-top" src="https://www.adorama.com/alc/wp-content/uploads/2016/07/shutterstock_373495819_recording-studio_mezz-825x465.jpg" alt=""></a>
         <div class="card-body">
           <h4 class="card-title">
             <a href="#">Project One</a>
@@ -46,7 +40,7 @@ Resources
     </div>
     <div class="col-lg-6 mb-4">
       <div class="card h-100">
-        <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+        <a href="#"><img class="card-img-top" src="https://resize.indiatvnews.com/en/resize/newbucket/715_-/2017/07/hands-1851500-960-720-1499944103.jpg" alt=""></a>
         <div class="card-body">
           <h4 class="card-title">
             <a href="#">Project Two</a>

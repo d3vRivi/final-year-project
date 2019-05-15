@@ -7,7 +7,8 @@
 <head>
 <link rel="stylesheet" type="text/css" media="screen" href="style.css?v=<?php echo time(); ?>" /> 
 <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 </head>
 <body>
 
@@ -89,6 +90,9 @@
 
                 if($num_rows > 0) {
                     echo '<form action="like.php?post_id=' . $post_id . '" method="POST">
+                            <div style="display:inline-block;">
+                            <i class="fas fa-thumbs-up"></i>
+                            </div>
                             <input type="submit" class="comment_like" name="unlike_button" value="Liked">
                             <div class="like_value">
                              ('. $total_likes .' Likes)
@@ -98,6 +102,9 @@
                 }
                 else {
                     echo '<form action="like.php?post_id=' . $post_id . '" method="POST">
+                            <div style="display:inline-block;">
+                            <i class="far fa-thumbs-up"></i>
+                            </div>
                             <input type="submit" class="comment_like" name="like_button" value="Like">
                             <div class="like_value">
                             ('. $total_likes .' Likes)

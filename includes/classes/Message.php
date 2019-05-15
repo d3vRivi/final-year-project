@@ -246,8 +246,7 @@ class Message{
 		$query = mysqli_query($this->conn, "SELECT * FROM messages WHERE viewed='no' AND user_to='$userLoggedIn'");
 		return mysqli_num_rows($query);
 	}
-
-    
+  
 
 }
 ?>

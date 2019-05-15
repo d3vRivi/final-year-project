@@ -136,10 +136,6 @@ class User{
             return $mutualConnections;
     
         }
-
-
-
-
         
     }
 ?>
