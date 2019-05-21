@@ -146,11 +146,11 @@ if(isset($_POST['post_message'])) {
                 <li class="nav-item">
                     <a class="nav-link" href="#tracks_div" aria-controls="tracks_div" role="tab" data-toggle="tab">Tracks</a>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a class="nav-link" href="#messages_div" aria-controls="messages_div" role="tab" data-toggle="tab">Messages</a>
-                </li>
+                </li> -->
                 <li class="nav-item">
-                    <a class="nav-link" href="#about_div" aria-controls="about_div" role="tab" data-toggle="tab">Portfolio</a>
+                    <a class="nav-link" href="#about_div" aria-controls="about_div" role="tab" data-toggle="tab">About</a>
                 </li>
             </ul>
 
@@ -167,7 +167,7 @@ if(isset($_POST['post_message'])) {
 
                 <div role="tabpanel" class="tab-pane" id="tracks_div">
              
-                    <div class="posts_area"></div>
+                    <div class="tracks_area"></div>
                     <center><img id="loading" src="assets/images/icons/loading.gif" height="50px" width="50px"></center>
                     
                 </div> 
@@ -202,8 +202,29 @@ if(isset($_POST['post_message'])) {
 
                 <div role="tabpanel" class="tab-pane" id="about_div">
              
-                    <div class="posts_area"></div>
-                    <center><img id="loading" src="assets/images/icons/loading.gif" height="50px" width="50px"></center>
+                    <div class="bio_area">
+                        <h5>Basic Information</h5>
+                        Name: <?php echo $user_array['f_name']. " ". $user_array['l_name']; ?><br>
+                        Website: <a href="https://www.kygomusic.com/">https://www.kygomusic.com/</a> 
+                        <hr>
+                        <h5>Bio</h5>
+                        <hr>
+                        <h5>Skills</h5>
+                        <hr>
+                        <h5>Achievements</h5>
+                        <hr>
+                        <h5>Profiles</h5>
+                            <a href="https://www.facebook.com/"><i class="fab fa-facebook" style="font-size:30px;"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="https://www.instagram.com/"><i class="fab fa-instagram" style="font-size:30px;"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="https://www.twitter.com/"><i class="fab fa-twitter" style="font-size:30px;"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="https://www.soundcloud.com/"><i class="fab fa-soundcloud" style="font-size:30px;"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <hr>
+                    </div>                    
+                    
+
+
+
+                    
                     
                 </div> 
                         

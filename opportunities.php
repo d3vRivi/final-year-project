@@ -51,7 +51,7 @@
     </div>
     <div class="col-lg-6 mb-4">
       <div class="card h-100">
-        <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+        <a href="#"><img class="card-img-top" src="https://ingensigarettblogg.com/wp-content/uploads/2018/10/sony-music-logo-music-logo-inspiration-logojoy-sony-music-record-labels.png" alt=""></a>
         <div class="card-body">
           <h4 class="card-title">
             <a href="#">Project Three</a>
@@ -62,7 +62,7 @@
     </div>
     <div class="col-lg-6 mb-4">
       <div class="card h-100">
-        <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+        <a href="#"><img class="card-img-top" src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/c2c4d56a-f66f-45e8-b6af-2f19d0f711d9/db01b6t-1afce35d-4b19-4817-9c88-b89ef8ec5ad4.png/v1/fill/w_1024,h_626,strp/universal_music_group_new_logo_by_dledeviant_db01b6t-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NjI2IiwicGF0aCI6IlwvZlwvYzJjNGQ1NmEtZjY2Zi00NWU4LWI2YWYtMmYxOWQwZjcxMWQ5XC9kYjAxYjZ0LTFhZmNlMzVkLTRiMTktNDgxNy05Yzg4LWI4OWVmOGVjNWFkNC5wbmciLCJ3aWR0aCI6Ijw9MTAyNCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.LC42I98QoKOljYNbl4lFskl31IlCljcCu0F59AnShas" alt=""></a>
         <div class="card-body">
           <h4 class="card-title">
             <a href="#">Project Four</a>
@@ -73,7 +73,7 @@
     </div>
     <div class="col-lg-6 mb-4">
       <div class="card h-100">
-        <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+        <a href="#"><img class="card-img-top" src="https://musically.com/wp-content/uploads/2018/08/New-Project-3-1500x500.jpg" alt=""></a>
         <div class="card-body">
           <h4 class="card-title">
             <a href="#">Project Five</a>
@@ -84,7 +84,7 @@
     </div>
     <div class="col-lg-6 mb-4">
       <div class="card h-100">
-        <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+        <a href="#"><img class="card-img-top" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Warner_Music_Group_2013_logo.svg/1200px-Warner_Music_Group_2013_logo.svg.png" alt=""></a>
         <div class="card-body">
           <h4 class="card-title">
             <a href="#">Project Six</a>

@@ -8,7 +8,7 @@ class Post{
         $this->user_obj= new User($conn, $user);
     }
 
-    public function submitPost($body, $user_to){
+    public function submitPost($body, $user_to, $imageName){
        $body = strip_tags($body); //removes html tags
        $body = mysqli_real_escape_string($this->conn, $body);
        $body = str_replace('\r\n', "\n", $body);
@@ -25,7 +25,7 @@ class Post{
 
                     $link = preg_split("!&!", $value);
                     $value = preg_replace("!watch\?v=!", "embed/", $link[0]);
-                    $value = "<br><center><iframe width=\'500\' height=\'315\' src=\'" . $value ."\'></iframe></center><br>";
+                    $value = "<br><center><iframe style=\'margin-left:-10px; border:none;\' width=\'550\' height=\'315\' src=\'" . $value ."\'></iframe></center><br>";
                     $body_array[$key] = $value;
 
                 }
@@ -45,7 +45,7 @@ class Post{
             }
 
             //insert post
-            $query = mysqli_query($this->conn, "INSERT INTO posts VALUES('','$body', '$added_by', '$user_to', '$date_added', 'no', 'no', '0' ) ");
+            $query = mysqli_query($this->conn, "INSERT INTO posts VALUES('','$body', '$added_by', '$user_to', '$date_added', 'no', 'no', '0', '$imageName') ");
 
             $returned_id = mysqli_insert_id($this->conn);
 
@@ -87,6 +87,7 @@ class Post{
             $body = $row['body'];
             $added_by = $row['added_by'];
             $date_time = $row['date_added'];
+            $imagePath = $row['image'];
 
             //Prepare user to string so it can be included even if not posted to a user
             if($row['user_to'] == "none"){
@@ -214,6 +215,15 @@ class Post{
                 }
             }
 
+            if($imagePath != "") {
+                $imageDiv = "<div class='postedImage'>
+                                <img src='$imagePath'>
+                            </div>";
+            }
+            else {
+                $imageDiv = "";
+            }
+
             $str .= "<div class ='status-post' onClick='javascript:toggle$id()'>
                         <div class='post_profile_pic'>
                             <img src='$profile_pic' width='50'>
@@ -227,6 +237,7 @@ class Post{
                         <div id='post_body'>
                             $body
                             <br>
+                            $imageDiv
                             <hr>
                         </div>
 
@@ -309,6 +320,8 @@ class Post{
             $body = $row['body'];
             $added_by = $row['added_by'];
             $date_time = $row['date_added'];
+            $imagePath = $row['image'];
+
 
                 if($num_iterations++ < $start)
                     continue;
@@ -417,6 +430,15 @@ class Post{
                 }
             }
 
+            if($imagePath != "") {
+                $imageDiv = "<div class='postedImage'>
+                                <img src='$imagePath'>
+                            </div>";
+            }
+            else {
+                $imageDiv = "";
+            }
+
             $str .= "<div class ='status-post' onClick='javascript:toggle$id()'>
                         <div class='post_profile_pic'>
                             <img src='$profile_pic' width='50'>
@@ -430,6 +452,7 @@ class Post{
                         <div id='post_body'>
                             $body
                             <br>
+                            $imageDiv
                             <hr>
                         </div>
 
@@ -502,14 +525,16 @@ class Post{
 				$id = $row['id'];
 				$body = $row['body'];
 				$added_by = $row['added_by'];
-				$date_time = $row['date_added'];
+                $date_time = $row['date_added'];
+                $imagePath = $row['image'];
+                
 
 				//Prepare user_to string so it can be included even if not posted to a user
 				if($row['user_to'] == "none") {
 					$user_to = "";
 				}
 				else {
-					$user_to_obj = new User($this->con, $row['user_to']);
+					$user_to_obj = new User($this->conn, $row['user_to']);
 					$user_to_name = $user_to_obj->getFirstAndLastName();
 					$user_to = "to <a href='" . $row['user_to'] ."'>" . $user_to_name . "</a>";
 				}
@@ -623,7 +648,15 @@ class Post{
 						else {
 							$time_message = $interval->s . " seconds ago";
 						}
-					}
+                    }
+                    if($imagePath != "") {
+                        $imageDiv = "<div class='postedImage'>
+                                        <img src='$imagePath'>
+                                    </div>";
+                    }
+                    else {
+                        $imageDiv = "";
+                    }
 
 					$str .= "<div class='status_post' onClick='javascript:toggle$id()'>
 								<div class='post_profile_pic'>
@@ -636,7 +669,8 @@ class Post{
 								</div>
 								<div id='post_body'>
 									$body
-									<br>
+                                    <br>
+                                    $imageDiv
 									<br>
 									<hr>
 								</div>

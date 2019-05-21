@@ -2,6 +2,8 @@
 session_start();
 include ("header.php");
 
+
+
 if(isset($_GET['q'])) {
 	$query = $_GET['q'];
 }
@@ -18,11 +20,15 @@ else {
 ?>
 
 
-?>
+
 
 
 <div class="main-body">
 <div class="body-grid">
+
+<?php
+include ("sidebar.php");
+?>
 <div class="column" id="main_column" style="display:inline-block;">
 
     <?php 

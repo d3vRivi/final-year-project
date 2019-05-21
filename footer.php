@@ -18,7 +18,7 @@
                         <a class="artist" href="https://open.spotify.com/artist/6OqhFYFJDnBBHas02HopPT?si=vQaSwY1DRkyhj-eoKZlMrw">Kero Kero Bonito</a>
                     </div>
                     <div class="bottom">
-                        <audio controls _autoplay="" name="media"><source src="https://i.koya.io/Kero%20Kero%20Bonito%20-%20Let's%20Go%20To%20The%20Forest.mp3" type="audio/mpeg"></audio>
+                        <audio controls _autoplay="" name="media"><source src="assets\audio\TRAP QUEEN - Matt Steffanina version_241002634_soundcloud.mp3" type="audio/mpeg"></audio>
                     </div>
 </div>
 </body>
